@@ -9,11 +9,19 @@
 /* Begin PBXBuildFile section */
 		A47285BE2C13FC29003DDC64 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47285BD2C13FC29003DDC64 /* AppDelegate.swift */; };
 		A47285C02C13FC29003DDC64 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47285BF2C13FC29003DDC64 /* SceneDelegate.swift */; };
-		A47285C22C13FC29003DDC64 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47285C12C13FC29003DDC64 /* ViewController.swift */; };
 		A47285C52C13FC29003DDC64 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A47285C42C13FC29003DDC64 /* Base */; };
 		A47285C72C13FC2B003DDC64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A47285C62C13FC2B003DDC64 /* Assets.xcassets */; };
 		A47285CA2C13FC2B003DDC64 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A47285C92C13FC2B003DDC64 /* Base */; };
 		A47286192C13FE52003DDC64 /* BankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286182C13FE52003DDC64 /* BankTests.swift */; };
+		A47286222C1402AA003DDC64 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286212C1402AA003DDC64 /* MainTabBarController.swift */; };
+		A47286242C1402E0003DDC64 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286232C1402E0003DDC64 /* MainTabBar.swift */; };
+		A47286262C1405F7003DDC64 /* ExColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286252C1405F7003DDC64 /* ExColor.swift */; };
+		A472862A2C140CA6003DDC64 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286292C140CA6003DDC64 /* HomeViewController.swift */; };
+		A472862C2C140D4E003DDC64 /* StaticFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472862B2C140D4E003DDC64 /* StaticFunctions.swift */; };
+		A472862E2C140DC2003DDC64 /* ExStaticFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472862D2C140DC2003DDC64 /* ExStaticFunctions.swift */; };
+		A47286302C140DF3003DDC64 /* ExImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472862F2C140DF3003DDC64 /* ExImage.swift */; };
+		A47286322C140E24003DDC64 /* ExUISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286312C140E24003DDC64 /* ExUISearchBar.swift */; };
+		A47286342C140EB2003DDC64 /* ExUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286332C140EB2003DDC64 /* ExUIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,13 +38,21 @@
 		A47285BA2C13FC29003DDC64 /* Bank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bank.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A47285BD2C13FC29003DDC64 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A47285BF2C13FC29003DDC64 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A47285C12C13FC29003DDC64 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A47285C42C13FC29003DDC64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A47285C62C13FC2B003DDC64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A47285C92C13FC2B003DDC64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A47285CB2C13FC2B003DDC64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A47286162C13FE52003DDC64 /* BankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A47286182C13FE52003DDC64 /* BankTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTests.swift; sourceTree = "<group>"; };
+		A47286212C1402AA003DDC64 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		A47286232C1402E0003DDC64 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
+		A47286252C1405F7003DDC64 /* ExColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExColor.swift; sourceTree = "<group>"; };
+		A47286292C140CA6003DDC64 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		A472862B2C140D4E003DDC64 /* StaticFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticFunctions.swift; sourceTree = "<group>"; };
+		A472862D2C140DC2003DDC64 /* ExStaticFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExStaticFunctions.swift; sourceTree = "<group>"; };
+		A472862F2C140DF3003DDC64 /* ExImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExImage.swift; sourceTree = "<group>"; };
+		A47286312C140E24003DDC64 /* ExUISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUISearchBar.swift; sourceTree = "<group>"; };
+		A47286332C140EB2003DDC64 /* ExUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,7 +96,6 @@
 			children = (
 				A47285BD2C13FC29003DDC64 /* AppDelegate.swift */,
 				A47285BF2C13FC29003DDC64 /* SceneDelegate.swift */,
-				A47285C12C13FC29003DDC64 /* ViewController.swift */,
 				A47285C32C13FC29003DDC64 /* Main.storyboard */,
 				A47285C62C13FC2B003DDC64 /* Assets.xcassets */,
 				A47285C82C13FC2B003DDC64 /* LaunchScreen.storyboard */,
@@ -113,6 +128,8 @@
 		A47285D32C13FD60003DDC64 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				A47286212C1402AA003DDC64 /* MainTabBarController.swift */,
+				A47286292C140CA6003DDC64 /* HomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -120,6 +137,7 @@
 		A47285D42C13FD8F003DDC64 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A47286232C1402E0003DDC64 /* MainTabBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -142,6 +160,10 @@
 		A472861F2C13FFA6003DDC64 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A47286252C1405F7003DDC64 /* ExColor.swift */,
+				A472862F2C140DF3003DDC64 /* ExImage.swift */,
+				A47286312C140E24003DDC64 /* ExUISearchBar.swift */,
+				A47286332C140EB2003DDC64 /* ExUIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -149,6 +171,8 @@
 		A47286202C13FFE7003DDC64 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A472862B2C140D4E003DDC64 /* StaticFunctions.swift */,
+				A472862D2C140DC2003DDC64 /* ExStaticFunctions.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -254,9 +278,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A47285C22C13FC29003DDC64 /* ViewController.swift in Sources */,
+				A472862E2C140DC2003DDC64 /* ExStaticFunctions.swift in Sources */,
 				A47285BE2C13FC29003DDC64 /* AppDelegate.swift in Sources */,
+				A47286222C1402AA003DDC64 /* MainTabBarController.swift in Sources */,
+				A47286242C1402E0003DDC64 /* MainTabBar.swift in Sources */,
+				A47286322C140E24003DDC64 /* ExUISearchBar.swift in Sources */,
+				A472862C2C140D4E003DDC64 /* StaticFunctions.swift in Sources */,
+				A47286342C140EB2003DDC64 /* ExUIView.swift in Sources */,
+				A47286262C1405F7003DDC64 /* ExColor.swift in Sources */,
 				A47285C02C13FC29003DDC64 /* SceneDelegate.swift in Sources */,
+				A472862A2C140CA6003DDC64 /* HomeViewController.swift in Sources */,
+				A47286302C140DF3003DDC64 /* ExImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
