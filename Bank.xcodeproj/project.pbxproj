@@ -13,7 +13,18 @@
 		A47285C52C13FC29003DDC64 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A47285C42C13FC29003DDC64 /* Base */; };
 		A47285C72C13FC2B003DDC64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A47285C62C13FC2B003DDC64 /* Assets.xcassets */; };
 		A47285CA2C13FC2B003DDC64 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = A47285C92C13FC2B003DDC64 /* Base */; };
+		A47286192C13FE52003DDC64 /* BankTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286182C13FE52003DDC64 /* BankTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A472861A2C13FE52003DDC64 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A47285B22C13FC29003DDC64 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A47285B92C13FC29003DDC64;
+			remoteInfo = Bank;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A47285BA2C13FC29003DDC64 /* Bank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bank.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -24,10 +35,19 @@
 		A47285C62C13FC2B003DDC64 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A47285C92C13FC2B003DDC64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A47285CB2C13FC2B003DDC64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A47286162C13FE52003DDC64 /* BankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A47286182C13FE52003DDC64 /* BankTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BankTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A47285B72C13FC29003DDC64 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A47286132C13FE52003DDC64 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				A47285BC2C13FC29003DDC64 /* Bank */,
+				A47286172C13FE52003DDC64 /* BankTests */,
 				A47285BB2C13FC29003DDC64 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				A47285BA2C13FC29003DDC64 /* Bank.app */,
+				A47286162C13FE52003DDC64 /* BankTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -63,8 +85,72 @@
 				A47285C62C13FC2B003DDC64 /* Assets.xcassets */,
 				A47285C82C13FC2B003DDC64 /* LaunchScreen.storyboard */,
 				A47285CB2C13FC2B003DDC64 /* Info.plist */,
+				A47285D32C13FD60003DDC64 /* Controllers */,
+				A47285D42C13FD8F003DDC64 /* Views */,
+				A47285D12C13FD42003DDC64 /* Models */,
+				A47285D22C13FD50003DDC64 /* ViewModels */,
+				A47285D52C13FDA8003DDC64 /* Services */,
+				A47286202C13FFE7003DDC64 /* Utilities */,
+				A472861F2C13FFA6003DDC64 /* Extensions */,
 			);
 			path = Bank;
+			sourceTree = "<group>";
+		};
+		A47285D12C13FD42003DDC64 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A47285D22C13FD50003DDC64 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A47285D32C13FD60003DDC64 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A47285D42C13FD8F003DDC64 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A47285D52C13FDA8003DDC64 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A47286172C13FE52003DDC64 /* BankTests */ = {
+			isa = PBXGroup;
+			children = (
+				A47286182C13FE52003DDC64 /* BankTests.swift */,
+			);
+			path = BankTests;
+			sourceTree = "<group>";
+		};
+		A472861F2C13FFA6003DDC64 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A47286202C13FFE7003DDC64 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +173,24 @@
 			productReference = A47285BA2C13FC29003DDC64 /* Bank.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A47286152C13FE52003DDC64 /* BankTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A472861C2C13FE52003DDC64 /* Build configuration list for PBXNativeTarget "BankTests" */;
+			buildPhases = (
+				A47286122C13FE52003DDC64 /* Sources */,
+				A47286132C13FE52003DDC64 /* Frameworks */,
+				A47286142C13FE52003DDC64 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A472861B2C13FE52003DDC64 /* PBXTargetDependency */,
+			);
+			name = BankTests;
+			productName = BankTests;
+			productReference = A47286162C13FE52003DDC64 /* BankTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -99,6 +203,10 @@
 				TargetAttributes = {
 					A47285B92C13FC29003DDC64 = {
 						CreatedOnToolsVersion = 15.3;
+					};
+					A47286152C13FE52003DDC64 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = A47285B92C13FC29003DDC64;
 					};
 				};
 			};
@@ -116,6 +224,7 @@
 			projectRoot = "";
 			targets = (
 				A47285B92C13FC29003DDC64 /* Bank */,
+				A47286152C13FE52003DDC64 /* BankTests */,
 			);
 		};
 /* End PBXProject section */
@@ -128,6 +237,13 @@
 				A47285C72C13FC2B003DDC64 /* Assets.xcassets in Resources */,
 				A47285CA2C13FC2B003DDC64 /* Base in Resources */,
 				A47285C52C13FC29003DDC64 /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A47286142C13FE52003DDC64 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +260,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A47286122C13FE52003DDC64 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A47286192C13FE52003DDC64 /* BankTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A472861B2C13FE52003DDC64 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A47285B92C13FC29003DDC64 /* Bank */;
+			targetProxy = A472861A2C13FE52003DDC64 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A47285C32C13FC29003DDC64 /* Main.storyboard */ = {
@@ -292,6 +424,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S89Z92E5EE;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bank/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -320,6 +453,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S89Z92E5EE;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Bank/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -341,6 +475,42 @@
 			};
 			name = Release;
 		};
+		A472861D2C13FE52003DDC64 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S89Z92E5EE;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ios.work.BankTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bank.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Bank";
+			};
+			name = Debug;
+		};
+		A472861E2C13FE52003DDC64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S89Z92E5EE;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ios.work.BankTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Bank.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Bank";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -358,6 +528,15 @@
 			buildConfigurations = (
 				A47285CF2C13FC2B003DDC64 /* Debug */,
 				A47285D02C13FC2B003DDC64 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A472861C2C13FE52003DDC64 /* Build configuration list for PBXNativeTarget "BankTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A472861D2C13FE52003DDC64 /* Debug */,
+				A472861E2C13FE52003DDC64 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
