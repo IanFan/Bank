@@ -7,6 +7,16 @@
 
 import Foundation
 
+struct MessageResponseModel: Codable {
+    let msgCode: String
+    let msgContent: String
+    let result: MessageResultModel?
+}
+
+struct MessageResultModel: Codable {
+    let messages: [MessageModel]
+}
+
 struct MessageModel: Codable {
     let status: Bool
     let updateDateTime: String
@@ -28,12 +38,4 @@ struct MessageModel: Codable {
     }
 }
 
-struct MessageResultModel: Codable {
-    let messages: [MessageModel]
-}
 
-struct MessageResponseModel: Codable {
-    let msgCode: String
-    let msgContent: String
-    let result: MessageResultModel?
-}

@@ -1,5 +1,5 @@
 //
-//  MessageViewModel.swift
+//  AdBannerViewModel.swift
 //  Bank
 //
 //  Created by Ian Fan on 2024/6/8.
@@ -7,43 +7,43 @@
 
 import Foundation
 
-protocol MessageViewModelProtocol: AnyObject {
-    func updateMessageUI()
+protocol AdBannerViewModelProtocol: AnyObject {
+    func updateAdBannerUI()
 }
 
-class MessageViewModel: NSObject {
-    var delegate: MessageViewModelProtocol?
-    var messages = [MessageModel]()
+class AdBannerViewModel: NSObject {
+    var delegate: AdBannerViewModelProtocol?
+    var adBanners = [AdBannerModel]()
     
     func loadData(isRefresh: Bool = false) {
         loadData(isRefresh: isRefresh, completion: { result in
-            self.delegate?.updateMessageUI()
+            self.delegate?.updateAdBannerUI()
         })
     }
     
-    func loadData(isRefresh: Bool = false, completion: @escaping (Result<[MessageModel], Error>) -> Void) {
+    func loadData(isRefresh: Bool = false, completion: @escaping (Result<[AdBannerModel], Error>) -> Void) {
         
         var fileName: String
         if isRefresh {
-            fileName = "notificationList"
+            fileName = "banner"
         } else {
-            fileName = "emptyNotificationList"
+            fileName = "banner"
         }
         let fileExt = "json"
         
-        let params = FileParams_message(fileName: fileName, fileExt: fileExt)
-        let loader = GenericSingleDataLoader(dataLoader: MessageLoader())
+        let params = FileParams_adBanner(fileName: fileName, fileExt: fileExt)
+        let loader = GenericSingleDataLoader(dataLoader: AdBannerLoader())
         loader.loadData(params: params, completion: { [weak self] result in
             switch result {
             case .success(let resultParams):
-                guard let objs = resultParams.result?.messages, let sortedObjs = self?.sortMessageObjs(objs: objs) else {
+                guard let objs = resultParams.result?.bannerList, let sortedObjs = self?.sortAdBannerObjs(objs: objs) else {
                     DispatchQueue.main.async {
                         completion(.failure(LoadError.emptyDataError))
                     }
                     return
                 }
                 DispatchQueue.main.async {
-                    self?.messages = sortedObjs
+                    self?.adBanners = sortedObjs
                     completion(.success(sortedObjs))
                 }
             case .failure(let error):
@@ -55,10 +55,10 @@ class MessageViewModel: NSObject {
         })
     }
     
-    private func sortMessageObjs(objs: [MessageModel]) -> [MessageModel] {
+    private func sortAdBannerObjs(objs: [AdBannerModel]) -> [AdBannerModel] {
         var objs = objs
         objs.sort {
-            return ($0.updateDateTimeInterval ?? 0) > ($1.updateDateTimeInterval ?? 0)
+            return ($0.adSeqNo) < ($1.adSeqNo)
         }
         return objs
     }

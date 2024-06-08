@@ -1,17 +1,24 @@
+//
+//  AmountDigitalParserTests.swift
+//  BankTests
+//
+//  Created by Ian Fan on 2024/6/8.
+//
+
 import XCTest
 @testable import Bank
 
-final class MessageLoaderTests: XCTestCase {
-    var loader: MessageLoader!
+final class AmountDigitalParserTests: XCTestCase {
+    var loader: AmountDigitalLoader!
     
     override func setUpWithError() throws {
         super.setUp()
         
-        let params = FileParams_message(fileName: "notificationList", fileExt: "json")
+        let params = FileParams_amountDigital(fileName: "usdDigital1", fileExt: "json")
         let key = params.cacheKey
         JsonHelper().clearJson(forKey: key)
         
-        loader = MessageLoader()
+        loader = AmountDigitalLoader()
     }
 
     override func tearDownWithError() throws {
@@ -20,14 +27,14 @@ final class MessageLoaderTests: XCTestCase {
     }
     
     func testLoadDataFromCache() async throws {
-        let params = FileParams_message(fileName: "notificationList", fileExt: "json")
+        let params = FileParams_amountDigital(fileName: "usdDigital1", fileExt: "json")
         
         switch try await loader.loadDataOnline(params: params) {
         case .success(let responseModel):
             switch try loader.loadDataFromCache(params: params) {
             case .success(let responseModel):
                 XCTAssertNotNil(responseModel)
-                XCTAssertTrue(responseModel.result?.messages.count ?? 0 > 0)
+                XCTAssertTrue(responseModel.result?.digitalList.count ?? 0 > 0)
             case .failure(let error):
                 XCTFail("\(#function) error \(error)")
             }
@@ -37,31 +44,31 @@ final class MessageLoaderTests: XCTestCase {
     }
     
 //    func testLoadDataLocal() throws {
-//        let params = FileParams_message(fileName: "notificationList", fileExt: "json")
+//        let params = FileParams_amountDigital(fileName: "usdDigital1", fileExt: "json")
 //        
 //        switch try loader.loadDataLocal(params: params) {
 //        case .success(let responseModel):
 //            XCTAssertNotNil(responseModel)
-//            XCTAssertTrue(responseModel.result?.messages.count ?? 0 > 0)
+//            XCTAssertTrue(responseModel.result?.digitalList.count ?? 0 > 0)
 //        case .failure(let error):
 //            XCTFail("\(#function) error \(error)")
 //        }
 //    }
     
     func testLoadDataOnline() async throws {
-        let params = FileParams_message(fileName: "notificationList", fileExt: "json")
+        let params = FileParams_amountDigital(fileName: "usdDigital1", fileExt: "json")
         
         switch try await loader.loadDataOnline(params: params) {
         case .success(let responseModel):
             XCTAssertNotNil(responseModel)
-            XCTAssertTrue(responseModel.result?.messages.count ?? 0 > 0)
+            XCTAssertTrue(responseModel.result?.digitalList.count ?? 0 > 0)
         case .failure(let error):
             XCTFail("\(#function) error \(error)")
         }
     }
 
     func testPerformanceExample1() throws {
-        let params = FileParams_message(fileName: "notificationList", fileExt: "json")
+        let params = FileParams_amountDigital(fileName: "usdDigital1", fileExt: "json")
         
         self.measure {
             do {
@@ -72,7 +79,7 @@ final class MessageLoaderTests: XCTestCase {
     }
     
     func testPerformanceExample2() throws {
-        let params = FileParams_message(fileName: "notificationList", fileExt: "json")
+        let params = FileParams_amountDigital(fileName: "usdDigital1", fileExt: "json")
         
         self.measure {
             do {
@@ -82,3 +89,4 @@ final class MessageLoaderTests: XCTestCase {
         }
     }
 }
+

@@ -1,5 +1,5 @@
 //
-//  MessageLoader.swift
+//  AmountDegitalLoader.swift
 //  Bank
 //
 //  Created by Ian Fan on 2024/6/8.
@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-struct MessageLoader: GenericSingleDataLoaderProtocol {
-    typealias Params = FileParams_message
-    typealias ResultType = MessageResponseModel
+struct AmountDigitalLoader: GenericSingleDataLoaderProtocol {
+    typealias Params = FileParams_amountDigital
+    typealias ResultType = AmountDigitalResponseModel
     
     func loadDataFromCache(params: Params) throws -> Result<ResultType, Error> {
         guard let resultParams = try loadCacheFile(params: params) else {
@@ -19,7 +19,7 @@ struct MessageLoader: GenericSingleDataLoaderProtocol {
         guard let data = resultParams.data else {
             return .failure(CacheError.cacheError)
         }
-        guard let model = try parse(params: DataParseParams_message(data: data)) else {
+        guard let model = try parse(params: DataParseParams_amountDigital(data: data)) else {
             return .failure(ParseError.parseError)
         }
         return .success(model)
@@ -32,7 +32,7 @@ struct MessageLoader: GenericSingleDataLoaderProtocol {
         guard let data = resultParams.data else {
             return .failure(LoadLocalError.loadError)
         }
-        guard let model = try parse(params: DataParseParams_message(data: data)) else {
+        guard let model = try parse(params: DataParseParams_amountDigital(data: data)) else {
             return .failure(ParseError.parseError)
         }
         return .success(model)
@@ -49,7 +49,7 @@ struct MessageLoader: GenericSingleDataLoaderProtocol {
         if !cacheSuccess {
             print("Error cache onlind file")
         }
-        guard let model = try parse(params: DataParseParams_message(data: data)) else {
+        guard let model = try parse(params: DataParseParams_amountDigital(data: data)) else {
             return .failure(ParseError.parseError)
         }
         return .success(model)
@@ -95,7 +95,7 @@ struct MessageLoader: GenericSingleDataLoaderProtocol {
     }
     
     private func loadOnlineFile(params: Params) async throws -> Params? {
-        let loader = LoadFileStrategy_message()
+        let loader = LoadFileStrategy_amountDigital()
         let result = try await loader.loadSingleFile(params: params)
         switch result {
         case .success(let resultParams):
@@ -108,10 +108,10 @@ struct MessageLoader: GenericSingleDataLoaderProtocol {
         }
     }
     
-    private func parse(params: DataParseParams) throws -> MessageResponseModel? {
+    private func parse(params: DataParseParams) throws -> AmountDigitalResponseModel? {
         switch params {
-        case let params as DataParseParams_message:
-            let parser = ParseStrategy_message()
+        case let params as DataParseParams_amountDigital:
+            let parser = ParseStrategy_amountDigital()
             guard let responseModel = parser.parseParams(params: params) else {
                 throw ParseError.parseError
             }
@@ -122,7 +122,7 @@ struct MessageLoader: GenericSingleDataLoaderProtocol {
     }
 }
 
-extension MessageLoader {
+extension AmountDigitalLoader {
     func mockCacheLocalData(params: Params) -> Bool {
         do {
             if let resultParams = try loadLocalFile(params: params) {

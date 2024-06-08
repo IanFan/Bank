@@ -11,6 +11,9 @@ import UIKit
 class HomeViewController: UIViewController {
     var scale: CGFloat!
     var messageViewModel = MessageViewModel()
+    var amountViewModel = AmountViewModel()
+    var favoriteViewModel = FavoriteViewModel()
+    var adBannerViewModel = AdBannerViewModel()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .darkContent
@@ -31,10 +34,15 @@ class HomeViewController: UIViewController {
         scale = getWindowSize_pbn10().width / 375
         setupUI()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            self.messageViewModel.delegate = self
-            self.messageViewModel.loadMessageData(isRefresh: true)
-        }
+        self.messageViewModel.delegate = self
+        self.amountViewModel.delegate = self
+        self.favoriteViewModel.delegate = self
+        self.adBannerViewModel.delegate = self
+        
+        self.messageViewModel.loadData(isRefresh: true)
+        self.amountViewModel.loadData(isRefresh: true)
+        self.favoriteViewModel.loadData(isRefresh: true)
+        self.adBannerViewModel.loadData(isRefresh: true)
     }
     
     func setupUI() {
@@ -138,10 +146,48 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: MessageViewModelProtocol {
     func updateMessageUI() {
-        let messages = messageViewModel.messages
-        for message in messages {
-            print("message: \(message.message)")
-        }
-        print("message count: \(messages)")
+        let objs = messageViewModel.messages
+//        for obj in objs {
+//            print("obj: \(obj.message)")
+//        }
+        print("messages count: \(objs.count)")
+    }
+}
+
+extension HomeViewController: AmountViewModelProtocol {
+    func updateAmountUI() {
+        let savings = amountViewModel.savings
+        let fixedDeposits = amountViewModel.fixedDeposits
+        let digitals = amountViewModel.digitals
+        
+//        for obj in savings {
+//            print("obj account: \(obj.account)")
+//            print("obj balance: \(obj.balance)")
+//        }
+        print("savings count: \(savings.count)")
+        print("fixedDeposits count: \(savings.count)")
+        print("digitals count: \(savings.count)")
+    }
+}
+
+extension HomeViewController: FavoriteViewModelProtocol {
+    func updateFavoriteUI() {
+        let objs = favoriteViewModel.favorites
+//        for obj in objs {
+//            print("obj nickname: \(obj.nickname)")
+//            print("obj transType: \(obj.transType)")
+//        }
+        print("favorites count: \(objs.count)")
+    }
+}
+
+extension HomeViewController: AdBannerViewModelProtocol {
+    func updateAdBannerUI() {
+        let objs = adBannerViewModel.adBanners
+//        for obj in objs {
+//            print("obj adSeqNo: \(obj.adSeqNo)")
+//            print("obj adSeqNo: \(obj.linkUrl)")
+//        }
+        print("adBanners count: \(objs.count)")
     }
 }
