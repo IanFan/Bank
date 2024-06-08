@@ -22,6 +22,21 @@
 		A47286302C140DF3003DDC64 /* ExImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472862F2C140DF3003DDC64 /* ExImage.swift */; };
 		A47286322C140E24003DDC64 /* ExUISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286312C140E24003DDC64 /* ExUISearchBar.swift */; };
 		A47286342C140EB2003DDC64 /* ExUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286332C140EB2003DDC64 /* ExUIView.swift */; };
+		A47286362C14302D003DDC64 /* MessageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286352C14302D003DDC64 /* MessageModel.swift */; };
+		A47286392C1430AD003DDC64 /* JsonParserStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286382C1430AD003DDC64 /* JsonParserStrategy.swift */; };
+		A472863C2C1430F6003DDC64 /* MessageParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472863B2C1430F6003DDC64 /* MessageParser.swift */; };
+		A472863F2C1431B2003DDC64 /* DataErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472863E2C1431B2003DDC64 /* DataErrors.swift */; };
+		A47286412C143362003DDC64 /* JsonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286402C143362003DDC64 /* JsonHelper.swift */; };
+		A47286432C1435E4003DDC64 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286422C1435E4003DDC64 /* MessageViewModel.swift */; };
+		A47286472C1438E1003DDC64 /* emptyNotificationList.json in Resources */ = {isa = PBXBuildFile; fileRef = A47286462C1438E1003DDC64 /* emptyNotificationList.json */; };
+		A47286492C143924003DDC64 /* notificationList.json in Resources */ = {isa = PBXBuildFile; fileRef = A47286482C143924003DDC64 /* notificationList.json */; };
+		A472864C2C143A3D003DDC64 /* DataLoadingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472864B2C143A3D003DDC64 /* DataLoadingProtocol.swift */; };
+		A472864E2C143A6F003DDC64 /* DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472864D2C143A6F003DDC64 /* DataLoader.swift */; };
+		A47286512C143B58003DDC64 /* LoadFileStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286502C143B58003DDC64 /* LoadFileStrategy.swift */; };
+		A47286532C143B84003DDC64 /* ParseStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286522C143B84003DDC64 /* ParseStrategy.swift */; };
+		A4D08DA42C143EF800F2CD57 /* MessageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DA32C143EF800F2CD57 /* MessageLoader.swift */; };
+		A4D08DA92C144B2500F2CD57 /* MessageLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DA82C144B2500F2CD57 /* MessageLoaderTests.swift */; };
+		A4D08DAE2C14503400F2CD57 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DAD2C14503400F2CD57 /* DateHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +68,21 @@
 		A472862F2C140DF3003DDC64 /* ExImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExImage.swift; sourceTree = "<group>"; };
 		A47286312C140E24003DDC64 /* ExUISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUISearchBar.swift; sourceTree = "<group>"; };
 		A47286332C140EB2003DDC64 /* ExUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIView.swift; sourceTree = "<group>"; };
+		A47286352C14302D003DDC64 /* MessageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageModel.swift; sourceTree = "<group>"; };
+		A47286382C1430AD003DDC64 /* JsonParserStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParserStrategy.swift; sourceTree = "<group>"; };
+		A472863B2C1430F6003DDC64 /* MessageParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageParser.swift; sourceTree = "<group>"; };
+		A472863E2C1431B2003DDC64 /* DataErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataErrors.swift; sourceTree = "<group>"; };
+		A47286402C143362003DDC64 /* JsonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonHelper.swift; sourceTree = "<group>"; };
+		A47286422C1435E4003DDC64 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
+		A47286462C1438E1003DDC64 /* emptyNotificationList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = emptyNotificationList.json; sourceTree = "<group>"; };
+		A47286482C143924003DDC64 /* notificationList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = notificationList.json; sourceTree = "<group>"; };
+		A472864B2C143A3D003DDC64 /* DataLoadingProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoadingProtocol.swift; sourceTree = "<group>"; };
+		A472864D2C143A6F003DDC64 /* DataLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
+		A47286502C143B58003DDC64 /* LoadFileStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFileStrategy.swift; sourceTree = "<group>"; };
+		A47286522C143B84003DDC64 /* ParseStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseStrategy.swift; sourceTree = "<group>"; };
+		A4D08DA32C143EF800F2CD57 /* MessageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageLoader.swift; sourceTree = "<group>"; };
+		A4D08DA82C144B2500F2CD57 /* MessageLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageLoaderTests.swift; sourceTree = "<group>"; };
+		A4D08DAD2C14503400F2CD57 /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,12 +130,14 @@
 				A47285C62C13FC2B003DDC64 /* Assets.xcassets */,
 				A47285C82C13FC2B003DDC64 /* LaunchScreen.storyboard */,
 				A47285CB2C13FC2B003DDC64 /* Info.plist */,
+				A47286442C14387E003DDC64 /* Resources */,
 				A47285D32C13FD60003DDC64 /* Controllers */,
 				A47285D42C13FD8F003DDC64 /* Views */,
 				A47285D22C13FD50003DDC64 /* ViewModels */,
 				A47285D12C13FD42003DDC64 /* Models */,
 				A47285D52C13FDA8003DDC64 /* Services */,
 				A47286202C13FFE7003DDC64 /* Utilities */,
+				A472863D2C1431A0003DDC64 /* Helpers */,
 				A472861F2C13FFA6003DDC64 /* Extensions */,
 			);
 			path = Bank;
@@ -114,6 +146,7 @@
 		A47285D12C13FD42003DDC64 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A47286352C14302D003DDC64 /* MessageModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -121,6 +154,7 @@
 		A47285D22C13FD50003DDC64 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				A47286422C1435E4003DDC64 /* MessageViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -145,6 +179,8 @@
 		A47285D52C13FDA8003DDC64 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				A472864A2C143A02003DDC64 /* DataLoader */,
+				A47286372C143089003DDC64 /* Parser */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -153,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				A47286182C13FE52003DDC64 /* BankTests.swift */,
+				A4D08DA52C144AFC00F2CD57 /* ServicesTests */,
 			);
 			path = BankTests;
 			sourceTree = "<group>";
@@ -175,6 +212,102 @@
 				A472862D2C140DC2003DDC64 /* ExStaticFunctions.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A47286372C143089003DDC64 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				A47286382C1430AD003DDC64 /* JsonParserStrategy.swift */,
+				A472863A2C1430E1003DDC64 /* Implements */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		A472863A2C1430E1003DDC64 /* Implements */ = {
+			isa = PBXGroup;
+			children = (
+				A472863B2C1430F6003DDC64 /* MessageParser.swift */,
+			);
+			path = Implements;
+			sourceTree = "<group>";
+		};
+		A472863D2C1431A0003DDC64 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A472863E2C1431B2003DDC64 /* DataErrors.swift */,
+				A47286402C143362003DDC64 /* JsonHelper.swift */,
+				A4D08DAD2C14503400F2CD57 /* DateHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A47286442C14387E003DDC64 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A47286452C143884003DDC64 /* Jsons */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A47286452C143884003DDC64 /* Jsons */ = {
+			isa = PBXGroup;
+			children = (
+				A47286462C1438E1003DDC64 /* emptyNotificationList.json */,
+				A47286482C143924003DDC64 /* notificationList.json */,
+			);
+			path = Jsons;
+			sourceTree = "<group>";
+		};
+		A472864A2C143A02003DDC64 /* DataLoader */ = {
+			isa = PBXGroup;
+			children = (
+				A472864B2C143A3D003DDC64 /* DataLoadingProtocol.swift */,
+				A472864D2C143A6F003DDC64 /* DataLoader.swift */,
+				A472864F2C143B3E003DDC64 /* Strategies */,
+				A4D08DA22C143EDD00F2CD57 /* Implementations */,
+			);
+			path = DataLoader;
+			sourceTree = "<group>";
+		};
+		A472864F2C143B3E003DDC64 /* Strategies */ = {
+			isa = PBXGroup;
+			children = (
+				A47286502C143B58003DDC64 /* LoadFileStrategy.swift */,
+				A47286522C143B84003DDC64 /* ParseStrategy.swift */,
+			);
+			path = Strategies;
+			sourceTree = "<group>";
+		};
+		A4D08DA22C143EDD00F2CD57 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				A4D08DA32C143EF800F2CD57 /* MessageLoader.swift */,
+			);
+			path = Implementations;
+			sourceTree = "<group>";
+		};
+		A4D08DA52C144AFC00F2CD57 /* ServicesTests */ = {
+			isa = PBXGroup;
+			children = (
+				A4D08DA62C144B0700F2CD57 /* DataLoader */,
+			);
+			path = ServicesTests;
+			sourceTree = "<group>";
+		};
+		A4D08DA62C144B0700F2CD57 /* DataLoader */ = {
+			isa = PBXGroup;
+			children = (
+				A4D08DA72C144B1000F2CD57 /* Implementations */,
+			);
+			path = DataLoader;
+			sourceTree = "<group>";
+		};
+		A4D08DA72C144B1000F2CD57 /* Implementations */ = {
+			isa = PBXGroup;
+			children = (
+				A4D08DA82C144B2500F2CD57 /* MessageLoaderTests.swift */,
+			);
+			path = Implementations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +391,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A47286492C143924003DDC64 /* notificationList.json in Resources */,
+				A47286472C1438E1003DDC64 /* emptyNotificationList.json in Resources */,
 				A47285C72C13FC2B003DDC64 /* Assets.xcassets in Resources */,
 				A47285CA2C13FC2B003DDC64 /* Base in Resources */,
 				A47285C52C13FC29003DDC64 /* Base in Resources */,
@@ -280,14 +415,26 @@
 			files = (
 				A472862E2C140DC2003DDC64 /* ExStaticFunctions.swift in Sources */,
 				A47285BE2C13FC29003DDC64 /* AppDelegate.swift in Sources */,
+				A472863F2C1431B2003DDC64 /* DataErrors.swift in Sources */,
 				A47286222C1402AA003DDC64 /* MainTabBarController.swift in Sources */,
+				A4D08DA42C143EF800F2CD57 /* MessageLoader.swift in Sources */,
+				A47286512C143B58003DDC64 /* LoadFileStrategy.swift in Sources */,
+				A47286392C1430AD003DDC64 /* JsonParserStrategy.swift in Sources */,
+				A47286412C143362003DDC64 /* JsonHelper.swift in Sources */,
 				A47286242C1402E0003DDC64 /* MainTabBar.swift in Sources */,
 				A47286322C140E24003DDC64 /* ExUISearchBar.swift in Sources */,
+				A472864C2C143A3D003DDC64 /* DataLoadingProtocol.swift in Sources */,
+				A472864E2C143A6F003DDC64 /* DataLoader.swift in Sources */,
 				A472862C2C140D4E003DDC64 /* StaticFunctions.swift in Sources */,
+				A47286432C1435E4003DDC64 /* MessageViewModel.swift in Sources */,
+				A47286532C143B84003DDC64 /* ParseStrategy.swift in Sources */,
 				A47286342C140EB2003DDC64 /* ExUIView.swift in Sources */,
+				A472863C2C1430F6003DDC64 /* MessageParser.swift in Sources */,
+				A47286362C14302D003DDC64 /* MessageModel.swift in Sources */,
 				A47286262C1405F7003DDC64 /* ExColor.swift in Sources */,
 				A47285C02C13FC29003DDC64 /* SceneDelegate.swift in Sources */,
 				A472862A2C140CA6003DDC64 /* HomeViewController.swift in Sources */,
+				A4D08DAE2C14503400F2CD57 /* DateHelper.swift in Sources */,
 				A47286302C140DF3003DDC64 /* ExImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4D08DA92C144B2500F2CD57 /* MessageLoaderTests.swift in Sources */,
 				A47286192C13FE52003DDC64 /* BankTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

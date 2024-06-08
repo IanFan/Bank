@@ -659,18 +659,6 @@ func convertToGrayScale_pbn10(image: UIImage) -> UIImage {
     return newImage
 }
 
-func getTodayString_pbn10(date: Date = Date(), dateFromat: String = "yyyy-MM-dd") -> String {
-    let format = DateFormatter()
-    format.dateFormat = dateFromat
-    var localTimeZoneAbbreviation: String { return TimeZone.current.abbreviation() ?? "UTC" }
-    format.locale = Locale.init(identifier: localTimeZoneAbbreviation)
-    format.timeZone = NSTimeZone.local
-
-    let formattedDate = format.string(from: date)
-//    print("formattedDate", formattedDate)
-    return formattedDate
-}
-
 //func isSameDay(key: String, saveToday: Bool = true) -> Bool {
 //    let today: String = getTodayString_pbn10()
 //    let isSameDay: Bool = (getString_pbn10(key, "") == today)
@@ -683,35 +671,6 @@ func getTodayString_pbn10(date: Date = Date(), dateFromat: String = "yyyy-MM-dd"
 //        return false
 //    }
 //}
-
-func isSameDay(key: String, saveToday: Bool = true) -> Bool {
-    func getStoredTimeInterval(_ key: String) -> TimeInterval {
-        let storedTimeInterval = UserDefaults.standard.double(forKey: key)
-        return storedTimeInterval
-    }
-
-    func setStoredTimeInterval(_ key: String, _ timeInterval: TimeInterval) {
-        UserDefaults.standard.set(timeInterval, forKey: key)
-    }
-    
-    let todayTimeInterval: TimeInterval = Date().timeIntervalSince1970
-        
-    let storedDateTimeInterval: TimeInterval = getStoredTimeInterval(key)
-        
-    let isSameDay: Bool = Calendar.current.isDate(Date(timeIntervalSince1970: storedDateTimeInterval), inSameDayAs: Date(timeIntervalSince1970: todayTimeInterval))
-
-    if todayTimeInterval < storedDateTimeInterval {
-        return true
-    }
-    if isSameDay {
-        return true
-    } else {
-        if saveToday {
-            setStoredTimeInterval(key, todayTimeInterval)
-        }
-        return false
-    }
-}
 
 func isEverShow(key: String, willShow: Bool) -> Bool {
     let isShow: Bool = getBool_pbn10(key, false)
@@ -884,63 +843,6 @@ class UpperLeftCornerView_pbn10: UIView {
         super.layoutSubviews()
         roundCorners(corners: [.topLeft], radius: radius)
     }
-}
-
-func getDailyReaminTime_pbn10() -> String {
-    let date = Date()
-    let calendar = Calendar.current
-    let hour = calendar.component(.hour, from: date)
-    let minutes = calendar.component(.minute, from: date)
-    let seconds = calendar.component(.second, from: date)
-    let todaySecond = 86400 - (hour * 3600 + minutes * 60 + seconds)
-    if todaySecond < 0 {
-        return "00:00:00"
-    }
-
-    var result = ""
-    let h = todaySecond / 3600
-    if h >= 10 {
-        result += "\(h):"
-    } else {
-        result += "0\(h):"
-    }
-
-    let m = (todaySecond / 60) % 60
-    if m >= 10 {
-        result += "\(m):"
-    } else {
-        result += "0\(m):"
-    }
-
-    let s = todaySecond % 60
-    if s >= 10 {
-        result += "\(s)"
-    } else {
-        result += "0\(s)"
-    }
-
-    return result
-}
-
-func date2String(_ date: Date, dateFormat: String = "yyyy-MM-dd HH:mm:ss") -> String {
-    let formatter = DateFormatter()
-    formatter.locale = Locale(identifier: "zh_Hant_TW")
-    formatter.dateFormat = dateFormat
-    let date = formatter.string(from: date)
-    return date
-}
-
-func getCurrentTimeString() -> String {
-    return date2String(Date(), dateFormat: "yyyy-MM-dd HH:mm:ss")
-}
-
-func string2Date(_ string: String, dateFormat: String = "yyyy-MM-dd HH:mm:ss") -> Date {
-    let formatter = DateFormatter()
-    formatter.locale = Locale(identifier: "zh_Hant_TW")
-    formatter.dateFormat = dateFormat
-    let date = formatter.date(from: string)
-    print("string 2 date input = \(string)")
-    return date!
 }
 
 func createCombineImage_pbn10(named: String, x: CGFloat = 0, y: CGFloat = 0, w: CGFloat = 0, h: CGFloat = 0) -> NSAttributedString {
