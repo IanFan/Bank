@@ -20,11 +20,13 @@ class HomeViewController: UIViewController {
     }
     
     deinit {
-        print("HomeViewController Deinit")
+        print("\(type(of: self)) deinit")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
 
     override func viewDidLoad() {
@@ -46,7 +48,17 @@ class HomeViewController: UIViewController {
     }
     
     func setupUI() {
-//        let button =
+        let button = UIFactory.createTextButton(size: 10, text: "button", textColor: .black, bgColor: .gray)
+        self.view.addSubview(button)
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        
+        NSLayoutConstraint.activate([
+            button.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100),
+            button.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 100),
+            button.widthAnchor.constraint(equalToConstant: 100),
+            button.heightAnchor.constraint(equalToConstant: 50),
+        ])
+        
         
         /*
         let corner = 6 * scale
@@ -144,6 +156,13 @@ class HomeViewController: UIViewController {
         */
     }
     
+}
+
+extension HomeViewController {
+    @objc func buttonTapped() {
+        let vc = NotificationViewController()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension HomeViewController: MessageViewModelProtocol {

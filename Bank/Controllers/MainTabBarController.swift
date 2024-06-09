@@ -59,6 +59,8 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
         setupTabBar()
     }
     
@@ -89,7 +91,7 @@ class MainTabBarController: UITabBarController {
         let imageName = tabEnum.imageName
         let selectedImageName = tabEnum.selectedImageName
         
-        let title = isPad() ? "" : titleStr
+        let title = titleStr
         let tab = UITabBarItem.init(title: title,
                                     image: UIImage(named: imageName)?.withRenderingMode(.alwaysOriginal),
                                     selectedImage: UIImage(named: selectedImageName)?.withRenderingMode(.alwaysOriginal))
