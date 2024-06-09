@@ -60,6 +60,7 @@ build/*
 # CocoaPods
 # Pods/
 # Podfile.lock
+*.scuserstate
 
 # InjectionProject
 iOSInjectionProject/*
