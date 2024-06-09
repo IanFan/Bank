@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(hexString: "#FAFAFA")
         
-        scale = getWindowSize().width / 375
+        scale = UIFactory.getWindowSize().width / 375
         setupUI()
         
         self.messageViewModel.delegate = self
@@ -46,7 +46,7 @@ class HomeViewController: UIViewController {
     }
     
     func setupUI() {
-        let button = createImageButton(image: <#T##UIImage#>)
+//        let button =
         
         /*
         let corner = 6 * scale
