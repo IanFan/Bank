@@ -80,10 +80,17 @@ class MainTabBarController: UITabBarController {
         customTabBar.setupTabBar(tabBarConroller: self)
     }
     
-    private func createMainViewController(tabEnum: MainTabEnum) -> HomeViewController {
-        let vc = HomeViewController()
-        vc.tabBarItem = createTabBarItem(tabEnum: tabEnum)
-        return vc
+    private func createMainViewController(tabEnum: MainTabEnum) -> UIViewController {
+        if tabEnum == .Home {
+            let vc = HomeViewController()
+            vc.tabBarItem = createTabBarItem(tabEnum: tabEnum)
+            return vc
+        } else {
+            let vc = UIInputViewController()
+            vc.view.backgroundColor = ColorEnum.localWhite2.color
+            vc.tabBarItem = createTabBarItem(tabEnum: tabEnum)
+            return vc
+        }
     }
     
     private func createTabBarItem(tabEnum: MainTabEnum) -> UITabBarItem {

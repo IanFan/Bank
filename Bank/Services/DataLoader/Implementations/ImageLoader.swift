@@ -1,16 +1,16 @@
 //
-//  AmountFixedDepositLoader.swift
+//  ImageLoader.swift
 //  Bank
 //
-//  Created by Ian Fan on 2024/6/8.
+//  Created by Ian Fan on 2024/6/9.
 //
 
 import Foundation
 import UIKit
 
-struct AmountFixedDepositLoader: GenericSingleDataLoaderProtocol {
-    typealias Params = FileParams_amountFixedDeposit
-    typealias ResultType = AmountFixedDepositResponseModel
+struct ImageLoader: GenericSingleDataLoaderProtocol {
+    typealias Params = FileParams_file
+    typealias ResultType = UIImage
     
     func loadDataFromCache(params: Params) throws -> Result<ResultType, Error> {
         guard let resultParams = try loadCacheFile(params: params) else {
@@ -19,10 +19,10 @@ struct AmountFixedDepositLoader: GenericSingleDataLoaderProtocol {
         guard let data = resultParams.data else {
             return .failure(CacheError.cacheError)
         }
-        guard let model = try parse(params: DataParseParams_amountFixedDeposit(data: data)) else {
-            return .failure(ParseError.parseError)
+        guard let image = UIImage(data: data) else {
+            return .failure(ImageError.imageError)
         }
-        return .success(model)
+        return .success(image)
     }
     
     func loadDataLocal(params: Params) throws -> Result<ResultType, Error> {
@@ -32,10 +32,10 @@ struct AmountFixedDepositLoader: GenericSingleDataLoaderProtocol {
         guard let data = resultParams.data else {
             return .failure(LoadLocalError.loadError)
         }
-        guard let model = try parse(params: DataParseParams_amountSaving(data: data)) else {
-            return .failure(ParseError.parseError)
+        guard let image = UIImage(data: data) else {
+            return .failure(ImageError.imageError)
         }
-        return .success(model)
+        return .success(image)
     }
     
     func loadDataOnline(params: Params) async throws -> Result<ResultType, Error> {
@@ -45,26 +45,25 @@ struct AmountFixedDepositLoader: GenericSingleDataLoaderProtocol {
         guard let data = resultParams.data else {
             return .failure(LoadError.loadError)
         }
-        guard let model = try parse(params: DataParseParams_amountFixedDeposit(data: data)) else {
-            return .failure(ParseError.parseError)
+        guard let image = UIImage(data: data) else {
+            return .failure(ImageError.imageError)
         }
         let cacheSuccess = saveCacheFile(params: resultParams)
         if !cacheSuccess {
             print("Error cache onlind file")
         }
-        return .success(model)
+        return .success(image)
     }
     
     private func loadCacheFile(params: Params) throws -> Params? {
         var resultParams = params
         let key = params.cacheKey
         
-        if let data = JsonHelper().fetchJsonData(forKey: key) {
-            resultParams.data = data
-            return resultParams
-        } else {
+        guard let data = FileHelper.loadDataFromDisk(forKey: key) else {
             return nil
         }
+        resultParams.data = data
+        return resultParams
     }
     
     private func saveCacheFile(params: Params) -> Bool {
@@ -73,29 +72,16 @@ struct AmountFixedDepositLoader: GenericSingleDataLoaderProtocol {
         }
         let key = params.cacheKey
         
-        let saveInLocalResult = JsonHelper().storeJsonData(jsonData: data, forKey: key)
+        let saveInLocalResult = FileHelper.saveDataToDisk(data, forKey: key)
         return saveInLocalResult
     }
     
     private func loadLocalFile(params: Params) throws -> Params? {
-        var resultParams = params
-        
-        let fileName = params.fileName
-        let fileExt = params.fileExt
-        
-        if let path = Bundle.main.path(forResource: fileName, ofType: fileExt) {
-            let url = URL(fileURLWithPath: path)
-            if let data = try? Data(contentsOf: url) {
-                resultParams.data = data
-                return resultParams
-            }
-        }
-        
         return nil
     }
     
     private func loadOnlineFile(params: Params) async throws -> Params? {
-        let loader = LoadFileStrategy_amountFixedDeposit()
+        let loader = LoadFileStrategy_file()
         let result = try await loader.loadSingleFile(params: params)
         switch result {
         case .success(let resultParams):
@@ -105,10 +91,10 @@ struct AmountFixedDepositLoader: GenericSingleDataLoaderProtocol {
         }
     }
     
-    private func parse(params: DataParseParams) throws -> AmountFixedDepositResponseModel? {
+    private func parse(params: DataParseParams) throws -> AdBannerResponseModel? {
         switch params {
-        case let params as DataParseParams_amountFixedDeposit:
-            let parser = ParseStrategy_amountFixedDeposit()
+        case let params as DataParseParams_adBanner:
+            let parser = ParseStrategy_adBanner()
             guard let responseModel = parser.parseParams(params: params) else {
                 throw ParseError.parseError
             }
@@ -119,7 +105,7 @@ struct AmountFixedDepositLoader: GenericSingleDataLoaderProtocol {
     }
 }
 
-extension AmountFixedDepositLoader {
+extension ImageLoader {
     func mockCacheLocalData(params: Params) -> Bool {
         do {
             if let resultParams = try loadLocalFile(params: params) {

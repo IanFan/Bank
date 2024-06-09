@@ -190,3 +190,18 @@ extension RequestManager {
         return dic
     }
 }
+
+extension RequestManager {
+    internal func downloadFile(from url: URL, completion: @escaping (Data?) -> Void) {
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else {
+                print("Error downloading image: \(String(describing: error))")
+                completion(nil)
+                return
+            }
+            DispatchQueue.main.async {
+                completion(data)
+            }
+        }.resume()
+    }
+}

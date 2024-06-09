@@ -40,6 +40,18 @@ class HomeViewController: UIViewController {
         self.favoriteViewModel.delegate = self
         self.adBannerViewModel.delegate = self
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.adView?.startAutoScroll()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.adView?.stopAutoScroll()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -144,7 +156,7 @@ class HomeViewController: UIViewController {
         mainStackView.addArrangedSubview(favoriteView)
         
         // adView
-        let adView = HomeAdView()
+        let adView = HomeAdView(frame: .zero, adBannerViewModel: adBannerViewModel)
         view.addSubview(adView)
         self.adView = adView
         adView.translatesAutoresizingMaskIntoConstraints = false
@@ -154,7 +166,6 @@ class HomeViewController: UIViewController {
             adView.heightAnchor.constraint(equalToConstant: 96*scale),
         ])
         mainStackView.addArrangedSubview(adView)
-        adView.backgroundColor = .randomColor
         
         // action
         navigationView.btnAvatarAction = { [weak self] in
@@ -209,10 +220,7 @@ extension HomeViewController: FavoriteViewModelProtocol {
 extension HomeViewController: AdBannerViewModelProtocol {
     func updateAdBannerUI() {
         let objs = adBannerViewModel.adBanners
-//        for obj in objs {
-//            print("obj adSeqNo: \(obj.adSeqNo)")
-//            print("obj adSeqNo: \(obj.linkUrl)")
-//        }
         print("adBanners count: \(objs.count)")
+        adView?.updateWithViewModel()
     }
 }

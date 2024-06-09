@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol AdBannerViewModelProtocol: AnyObject {
     func updateAdBannerUI()
@@ -63,5 +64,27 @@ class AdBannerViewModel: NSObject {
             return ($0.adSeqNo) < ($1.adSeqNo)
         }
         return objs
+    }
+}
+
+extension AdBannerViewModel: UICollectionViewDataSource {
+    func numberOfSections(in _: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return adBanners.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let obj = adBanners[indexPath.row]
+        let item = HomeAdModel(adSeqNo: obj.adSeqNo, linkUrl: obj.linkUrl)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AdCell.cellID, for: indexPath) as! AdCell
+        cell.setupWithItem(item: item)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        return UICollectionReusableView()
     }
 }

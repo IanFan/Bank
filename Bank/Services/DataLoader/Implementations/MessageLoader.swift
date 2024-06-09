@@ -45,12 +45,12 @@ struct MessageLoader: GenericSingleDataLoaderProtocol {
         guard let data = resultParams.data else {
             return .failure(LoadError.loadError)
         }
+        guard let model = try parse(params: DataParseParams_message(data: data)) else {
+            return .failure(ParseError.parseError)
+        }
         let cacheSuccess = saveCacheFile(params: resultParams)
         if !cacheSuccess {
             print("Error cache onlind file")
-        }
-        guard let model = try parse(params: DataParseParams_message(data: data)) else {
-            return .failure(ParseError.parseError)
         }
         return .success(model)
     }

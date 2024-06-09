@@ -45,12 +45,12 @@ struct AdBannerLoader: GenericSingleDataLoaderProtocol {
         guard let data = resultParams.data else {
             return .failure(LoadError.loadError)
         }
+        guard let model = try parse(params: DataParseParams_adBanner(data: data)) else {
+            return .failure(ParseError.parseError)
+        }
         let cacheSuccess = saveCacheFile(params: resultParams)
         if !cacheSuccess {
             print("Error cache onlind file")
-        }
-        guard let model = try parse(params: DataParseParams_adBanner(data: data)) else {
-            return .failure(ParseError.parseError)
         }
         return .success(model)
     }
@@ -99,9 +99,6 @@ struct AdBannerLoader: GenericSingleDataLoaderProtocol {
         let result = try await loader.loadSingleFile(params: params)
         switch result {
         case .success(let resultParams):
-            guard saveCacheFile(params: resultParams) else {
-                return nil
-            }
             return resultParams
         case .failure(_):
             return nil

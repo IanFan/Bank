@@ -43,3 +43,7 @@ enum LoadLocalError: Error {
 enum GenerateError: Error {
     case generateError
 }
+
+enum ImageError: Error {
+    case imageError
+}

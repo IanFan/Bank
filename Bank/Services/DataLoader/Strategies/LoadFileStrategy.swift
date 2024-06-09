@@ -233,3 +233,37 @@ class LoadFileStrategy_adBanner: LoadFileStrategy {
         }
     }
 }
+
+// MARK: - LOADER file
+
+struct FileParams_file: FileParams {
+    var url: String
+    var data: Data?
+    
+    var cacheKey: String {
+        return "\(url)"
+    }
+}
+
+class LoadFileStrategy_file: LoadFileStrategy {
+    typealias Params = FileParams_file
+    typealias ResultType = FileParams_file
+    
+    func loadSingleFile(params: Params) async throws -> Result<ResultType, Error> {
+        guard let url = URL(string: params.url) else {
+            return .failure(LoadError.paramError)
+        }
+        return await withCheckedContinuation { continuation in
+            RequestManager.shared.downloadFile(from: url, completion: { data in
+                if let data = data {
+                    var resultParams = params
+                    resultParams.data = data
+                    continuation.resume(returning: .success(resultParams))
+                } else {
+                    let error = NSError(domain: "RequestError", code: 1, userInfo: [NSLocalizedDescriptionKey: "Request failed or no data"])
+                    continuation.resume(returning: .failure(error))
+                }
+            })
+        }
+    }
+}
