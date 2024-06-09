@@ -67,6 +67,9 @@
 		A4D08DF82C15A49C00F2CD57 /* HomeAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DF72C15A49C00F2CD57 /* HomeAmountView.swift */; };
 		A4D08DFA2C15A8E100F2CD57 /* ExDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DF92C15A8E100F2CD57 /* ExDouble.swift */; };
 		A4D08DFC2C15B42900F2CD57 /* HomeMoenyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DFB2C15B42900F2CD57 /* HomeMoenyModel.swift */; };
+		A4D08DFE2C15C11B00F2CD57 /* HomeMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DFD2C15C11B00F2CD57 /* HomeMenuView.swift */; };
+		A4D08E002C15C16500F2CD57 /* HomeFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DFF2C15C16500F2CD57 /* HomeFavorite.swift */; };
+		A4D08E022C15C19100F2CD57 /* HomeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08E012C15C19100F2CD57 /* HomeAdView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +146,9 @@
 		A4D08DF72C15A49C00F2CD57 /* HomeAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAmountView.swift; sourceTree = "<group>"; };
 		A4D08DF92C15A8E100F2CD57 /* ExDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExDouble.swift; sourceTree = "<group>"; };
 		A4D08DFB2C15B42900F2CD57 /* HomeMoenyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMoenyModel.swift; sourceTree = "<group>"; };
+		A4D08DFD2C15C11B00F2CD57 /* HomeMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuView.swift; sourceTree = "<group>"; };
+		A4D08DFF2C15C16500F2CD57 /* HomeFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFavorite.swift; sourceTree = "<group>"; };
+		A4D08E012C15C19100F2CD57 /* HomeAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAdView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +249,9 @@
 				A47286232C1402E0003DDC64 /* MainTabBar.swift */,
 				A4D08DF52C1598E600F2CD57 /* HomeNavigationView.swift */,
 				A4D08DF72C15A49C00F2CD57 /* HomeAmountView.swift */,
+				A4D08DFD2C15C11B00F2CD57 /* HomeMenuView.swift */,
+				A4D08DFF2C15C16500F2CD57 /* HomeFavorite.swift */,
+				A4D08E012C15C19100F2CD57 /* HomeAdView.swift */,
 				A4D08DEA2C15579600F2CD57 /* CustomNavigationView.swift */,
 			);
 			path = Views;
@@ -511,15 +520,18 @@
 			files = (
 				A472862E2C140DC2003DDC64 /* FontFactory.swift in Sources */,
 				A4D08DC12C146C2D00F2CD57 /* AmountModels.swift in Sources */,
+				A4D08DFE2C15C11B00F2CD57 /* HomeMenuView.swift in Sources */,
 				A4D08DF22C15733600F2CD57 /* NotificationCell.swift in Sources */,
 				A47285BE2C13FC29003DDC64 /* AppDelegate.swift in Sources */,
 				A4D08DCB2C14745A00F2CD57 /* AdBannerModels.swift in Sources */,
+				A4D08E002C15C16500F2CD57 /* HomeFavorite.swift in Sources */,
 				A472863F2C1431B2003DDC64 /* DataErrors.swift in Sources */,
 				A4D08DB92C14606800F2CD57 /* RequestManager.swift in Sources */,
 				A4D08DFC2C15B42900F2CD57 /* HomeMoenyModel.swift in Sources */,
 				A47286222C1402AA003DDC64 /* MainTabBarController.swift in Sources */,
 				A4D08DED2C155AFB00F2CD57 /* LanguageManager.swift in Sources */,
 				A4D08DA42C143EF800F2CD57 /* MessageLoader.swift in Sources */,
+				A4D08E022C15C19100F2CD57 /* HomeAdView.swift in Sources */,
 				A47286512C143B58003DDC64 /* LoadFileStrategy.swift in Sources */,
 				A4D08DBB2C146BE400F2CD57 /* AmountSavingLoader.swift in Sources */,
 				A4D08DBF2C146BFE00F2CD57 /* AdBannerLoader.swift in Sources */,

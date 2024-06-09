@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class MainTabBar: UITabBar {
+    let scale: CGFloat = UIFactory.getScale()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -53,11 +55,11 @@ class MainTabBar: UITabBar {
         NSLayoutConstraint.activate([
             tabBar.leadingAnchor.constraint(equalTo: tabBarConroller.view.leadingAnchor),
             tabBar.trailingAnchor.constraint(equalTo: tabBarConroller.view.trailingAnchor),
-            tabBar.bottomAnchor.constraint(equalTo: tabBarConroller.view.bottomAnchor, constant: -70),
-            tabBar.heightAnchor.constraint(equalToConstant: 49)
+            tabBar.bottomAnchor.constraint(equalTo: tabBarConroller.view.bottomAnchor, constant: -40*scale),
+            tabBar.heightAnchor.constraint(equalToConstant: 50*scale)
         ])
         
         tabBar.itemPositioning = .centered
-        tabBar.itemSpacing = 5
+        tabBar.itemSpacing = 1*scale
     }
 }

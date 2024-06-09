@@ -18,6 +18,9 @@ class HomeViewController: UIViewController {
     var refreshControl: UIRefreshControl!
     var navigationView: HomeNavigationView!
     var amountView: HomeAmountView!
+    var menuView: HomeMenuView!
+    var favoriteView: HomeFavoriteView!
+    var adView: HomeAdView!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .darkContent
@@ -66,6 +69,7 @@ class HomeViewController: UIViewController {
         // UIScrollView
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 90*scale, right: 0)
         view.addSubview(scrollView)
         
         let refreshControl = UIRefreshControl()
@@ -126,35 +130,44 @@ class HomeViewController: UIViewController {
         navigationView.translatesAutoresizingMaskIntoConstraints = false
         mainStackView.addArrangedSubview(amountView)
         
-        // medium stack，include small stack
-        for _ in 1...3 {
-            let mediumView = UIView()
-            mediumView.backgroundColor = .blue
-            mediumView.translatesAutoresizingMaskIntoConstraints = false
-
-            let smallStackView = UIStackView()
-            smallStackView.axis = .vertical
-            smallStackView.spacing = 0
-            smallStackView.translatesAutoresizingMaskIntoConstraints = false
-            mediumView.addSubview(smallStackView)
-            
-            NSLayoutConstraint.activate([
-                smallStackView.topAnchor.constraint(equalTo: mediumView.topAnchor, constant: 50),
-                smallStackView.bottomAnchor.constraint(equalTo: mediumView.bottomAnchor),
-                smallStackView.leadingAnchor.constraint(equalTo: mediumView.leadingAnchor),
-                smallStackView.trailingAnchor.constraint(equalTo: mediumView.trailingAnchor)
-            ])
-            
-            for _ in 1...4 {
-                let smallView = UIView()
-                smallView.backgroundColor = .randomColor
-                smallView.translatesAutoresizingMaskIntoConstraints = false
-                smallView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-                smallStackView.addArrangedSubview(smallView)
-            }
-
-            mainStackView.addArrangedSubview(mediumView)
-        }
+        // menuView
+        let menuView = HomeMenuView()
+        view.addSubview(menuView)
+        self.menuView = menuView
+        menuView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            menuView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            menuView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            menuView.heightAnchor.constraint(equalToConstant: 192*scale),
+        ])
+        mainStackView.addArrangedSubview(menuView)
+        menuView.backgroundColor = .randomColor
+        
+        // favoriteView
+        let favoriteView = HomeFavoriteView()
+        view.addSubview(favoriteView)
+        self.favoriteView = favoriteView
+        favoriteView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            favoriteView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            favoriteView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            favoriteView.heightAnchor.constraint(equalToConstant: 136*scale),
+        ])
+        mainStackView.addArrangedSubview(favoriteView)
+        favoriteView.backgroundColor = .randomColor
+        
+        // adView
+        let adView = HomeAdView()
+        view.addSubview(adView)
+        self.adView = adView
+        adView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            adView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            adView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            adView.heightAnchor.constraint(equalToConstant: 96*scale),
+        ])
+        mainStackView.addArrangedSubview(adView)
+        adView.backgroundColor = .randomColor
         
         // action
         navigationView.btnAvatarAction = { [weak self] in
