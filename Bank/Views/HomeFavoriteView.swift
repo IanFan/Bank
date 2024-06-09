@@ -95,6 +95,7 @@ class HomeFavoriteView: UIView {
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.showsHorizontalScrollIndicator = false
         cv.backgroundColor = .clear
+        cv.contentInset = UIEdgeInsets(top: 0, left: 24*scale, bottom: 0, right: 24*scale)
         addSubview(cv)
         self.cv = cv
         cv.alpha = 0

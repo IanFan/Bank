@@ -104,7 +104,7 @@ extension FavoriteViewModel: UICollectionViewDelegateFlowLayout {
                         layout _: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let height = collectionView.frame.height
-        let size = CGSize(width: 88*scale, height: height)
+        let size = CGSize(width: 80*scale, height: height)
         return size
     }
     
