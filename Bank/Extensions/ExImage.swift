@@ -220,3 +220,24 @@ extension UIImage{
         self.init(cgImage: cgImage)
     }
 }
+
+extension UIImage {
+    func toGrayScale() -> UIImage? {
+        let imageRect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height)
+        let colorSpace = CGColorSpaceCreateDeviceGray()
+        let width = Int(self.size.width)
+        let height = Int(self.size.height)
+
+        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.none.rawValue)
+        guard let context = CGContext(data: nil, width: width, height: height, bitsPerComponent: 8, bytesPerRow: 0, space: colorSpace, bitmapInfo: bitmapInfo.rawValue) else {
+            return nil
+        }
+
+        context.draw(self.cgImage!, in: imageRect)
+        guard let imageRef = context.makeImage() else {
+            return nil
+        }
+
+        return UIImage(cgImage: imageRef)
+    }
+}

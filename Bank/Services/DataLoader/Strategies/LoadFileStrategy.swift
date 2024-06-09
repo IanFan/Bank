@@ -40,7 +40,7 @@ class LoadFileStrategy_message: LoadFileStrategy {
         
         return await withCheckedContinuation { continuation in
             let url = "\(RequestStruct.DOMAIN)/\(fileName).\(fileExt)"
-            RequestManager_pbn10.shared.httpGet(url: url, parameters: nil, httpClosure: { data, response, error in
+            RequestManager.shared.httpGet(url: url, parameters: nil, httpClosure: { data, response, error in
                 if let data = data {
                     var resultParams = params
                     resultParams.data = data
@@ -76,7 +76,7 @@ class LoadFileStrategy_amountSaving: LoadFileStrategy {
         
         return await withCheckedContinuation { continuation in
             let url = "\(RequestStruct.DOMAIN)/\(fileName).\(fileExt)"
-            RequestManager_pbn10.shared.httpGet(url: url, parameters: nil, httpClosure: { data, response, error in
+            RequestManager.shared.httpGet(url: url, parameters: nil, httpClosure: { data, response, error in
                 if let data = data {
                     var resultParams = params
                     resultParams.data = data
@@ -112,7 +112,7 @@ class LoadFileStrategy_amountFixedDeposit: LoadFileStrategy {
         
         return await withCheckedContinuation { continuation in
             let url = "\(RequestStruct.DOMAIN)/\(fileName).\(fileExt)"
-            RequestManager_pbn10.shared.httpGet(url: url, parameters: nil, httpClosure: { data, response, error in
+            RequestManager.shared.httpGet(url: url, parameters: nil, httpClosure: { data, response, error in
                 if let data = data {
                     var resultParams = params
                     resultParams.data = data
@@ -148,7 +148,7 @@ class LoadFileStrategy_amountDigital: LoadFileStrategy {
         
         return await withCheckedContinuation { continuation in
             let url = "\(RequestStruct.DOMAIN)/\(fileName).\(fileExt)"
-            RequestManager_pbn10.shared.httpGet(url: url, parameters: nil, httpClosure: { data, response, error in
+            RequestManager.shared.httpGet(url: url, parameters: nil, httpClosure: { data, response, error in
                 if let data = data {
                     var resultParams = params
                     resultParams.data = data
@@ -184,7 +184,7 @@ class LoadFileStrategy_favorite: LoadFileStrategy {
         
         return await withCheckedContinuation { continuation in
             let url = "\(RequestStruct.DOMAIN)/\(fileName).\(fileExt)"
-            RequestManager_pbn10.shared.httpGet(url: url, parameters: nil, httpClosure: { data, response, error in
+            RequestManager.shared.httpGet(url: url, parameters: nil, httpClosure: { data, response, error in
                 if let data = data {
                     var resultParams = params
                     resultParams.data = data
@@ -220,7 +220,7 @@ class LoadFileStrategy_adBanner: LoadFileStrategy {
         
         return await withCheckedContinuation { continuation in
             let url = "\(RequestStruct.DOMAIN)/\(fileName).\(fileExt)"
-            RequestManager_pbn10.shared.httpGet(url: url, parameters: nil, httpClosure: { data, response, error in
+            RequestManager.shared.httpGet(url: url, parameters: nil, httpClosure: { data, response, error in
                 if let data = data {
                     var resultParams = params
                     resultParams.data = data

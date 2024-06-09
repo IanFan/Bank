@@ -28,7 +28,7 @@ struct MessageModel: Codable {
         if let cachedInterval = Self.cachedUpdateDateTimeInterval {
             return cachedInterval
         } else {
-            if let interval = DateHelper().string2TimeInterval(updateDateTime) {
+            if let interval = DateHelper.string2TimeInterval(updateDateTime) {
                 Self.cachedUpdateDateTimeInterval = interval
                 return interval
             } else {

@@ -31,7 +31,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(hexString: "#FAFAFA")
         
-        scale = getWindowSize_pbn10().width / 375
+        scale = getWindowSize().width / 375
         setupUI()
         
         self.messageViewModel.delegate = self
@@ -46,35 +46,37 @@ class HomeViewController: UIViewController {
     }
     
     func setupUI() {
+        let button = createImageButton(image: <#T##UIImage#>)
+        
         /*
         let corner = 6 * scale
         let shadowOpacity: Float = 0.8
         
-        let vContainer = createView_pbn10(color: .clear)
-        let ivPreview = createImage_pbn10(name: "")
+        let vContainer = createView(color: .clear)
+        let ivPreview = createImage(name: "")
         ivPreview.contentMode = .scaleToFill
-        let vTranslucent = createView_pbn10(color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.16))
+        let vTranslucent = createView(color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.16))
         vTranslucent.alpha = 0
         
-        let bgSubtitle = createView_pbn10(color: .black.withAlphaComponent(0.65), corner: corner)
+        let bgSubtitle = createView(color: .black.withAlphaComponent(0.65), corner: corner)
         
-        let lbSubtitle = createLabel_pbn10(size: 14 * scale, text: "", color: .white, font: .RoundedMplus1c_Medium)
+        let lbSubtitle = createLabel(size: 14 * scale, text: "", color: .white, font: .RoundedMplus1c_Medium)
         lbSubtitle.numberOfLines = 0
         lbSubtitle.alpha = 0.9
         
-        let lbTitle = createLabel_pbn10(size: 14 * scale, text: "", color: .white, font: .RoundedMplus1c_Bold)
+        let lbTitle = createLabel(size: 14 * scale, text: "", color: .white, font: .RoundedMplus1c_Bold)
         lbTitle.textAlignment = .center
         lbTitle.numberOfLines = 0
-        addShadow_pbn10(view: lbTitle, width: 0, height: 0, shadowOpacity: shadowOpacity)
+        addShadow(view: lbTitle, width: 0, height: 0, shadowOpacity: shadowOpacity)
 //        lbTitle.alpha = 0
         
-        let ivVote = createImage_pbn10(name: "eye", tintColor: .white)
+        let ivVote = createImage(name: "eye", tintColor: .white)
         ivVote.contentMode = .scaleAspectFit
-        addShadow_pbn10(view: ivVote, width: 0, height: 0, shadowOpacity: shadowOpacity)
+        addShadow(view: ivVote, width: 0, height: 0, shadowOpacity: shadowOpacity)
         
-        let lbVote = createLabel_pbn10(size: 12 * scale, text: "", color: .white, font: .RoundedMplus1c_Medium)
+        let lbVote = createLabel(size: 12 * scale, text: "", color: .white, font: .RoundedMplus1c_Medium)
         lbVote.numberOfLines = 1
-        addShadow_pbn10(view: lbVote, width: 0, height: 0, shadowOpacity: shadowOpacity)
+        addShadow(view: lbVote, width: 0, height: 0, shadowOpacity: shadowOpacity)
         
         self.vContainer = vContainer
         self.ivPreview = ivPreview
@@ -165,8 +167,8 @@ extension HomeViewController: AmountViewModelProtocol {
 //            print("obj balance: \(obj.balance)")
 //        }
         print("savings count: \(savings.count)")
-        print("fixedDeposits count: \(savings.count)")
-        print("digitals count: \(savings.count)")
+        print("fixedDeposits count: \(fixedDeposits.count)")
+        print("digitals count: \(digitals.count)")
     }
 }
 

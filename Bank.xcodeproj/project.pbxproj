@@ -17,8 +17,7 @@
 		A47286242C1402E0003DDC64 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286232C1402E0003DDC64 /* MainTabBar.swift */; };
 		A47286262C1405F7003DDC64 /* ExColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286252C1405F7003DDC64 /* ExColor.swift */; };
 		A472862A2C140CA6003DDC64 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286292C140CA6003DDC64 /* HomeViewController.swift */; };
-		A472862C2C140D4E003DDC64 /* StaticFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472862B2C140D4E003DDC64 /* StaticFunctions.swift */; };
-		A472862E2C140DC2003DDC64 /* ExStaticFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472862D2C140DC2003DDC64 /* ExStaticFunctions.swift */; };
+		A472862E2C140DC2003DDC64 /* FontFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472862D2C140DC2003DDC64 /* FontFactory.swift */; };
 		A47286302C140DF3003DDC64 /* ExImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A472862F2C140DF3003DDC64 /* ExImage.swift */; };
 		A47286322C140E24003DDC64 /* ExUISearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286312C140E24003DDC64 /* ExUISearchBar.swift */; };
 		A47286342C140EB2003DDC64 /* ExUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A47286332C140EB2003DDC64 /* ExUIView.swift */; };
@@ -57,6 +56,9 @@
 		A4D08DDF2C147C8900F2CD57 /* AmountDigitalParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DDE2C147C8900F2CD57 /* AmountDigitalParserTests.swift */; };
 		A4D08DE12C147C9200F2CD57 /* FavoriteParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DE02C147C9200F2CD57 /* FavoriteParserTests.swift */; };
 		A4D08DE32C147C9C00F2CD57 /* AdBannerParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DE22C147C9C00F2CD57 /* AdBannerParserTests.swift */; };
+		A4D08DE52C15489900F2CD57 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DE42C15489900F2CD57 /* NotificationViewController.swift */; };
+		A4D08DE72C15497100F2CD57 /* UIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DE62C15497100F2CD57 /* UIFactory.swift */; };
+		A4D08DE92C154C9800F2CD57 /* PrefHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DE82C154C9800F2CD57 /* PrefHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,8 +85,7 @@
 		A47286232C1402E0003DDC64 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		A47286252C1405F7003DDC64 /* ExColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExColor.swift; sourceTree = "<group>"; };
 		A47286292C140CA6003DDC64 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		A472862B2C140D4E003DDC64 /* StaticFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticFunctions.swift; sourceTree = "<group>"; };
-		A472862D2C140DC2003DDC64 /* ExStaticFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExStaticFunctions.swift; sourceTree = "<group>"; };
+		A472862D2C140DC2003DDC64 /* FontFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontFactory.swift; sourceTree = "<group>"; };
 		A472862F2C140DF3003DDC64 /* ExImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExImage.swift; sourceTree = "<group>"; };
 		A47286312C140E24003DDC64 /* ExUISearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUISearchBar.swift; sourceTree = "<group>"; };
 		A47286332C140EB2003DDC64 /* ExUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIView.swift; sourceTree = "<group>"; };
@@ -123,6 +124,9 @@
 		A4D08DDE2C147C8900F2CD57 /* AmountDigitalParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AmountDigitalParserTests.swift; sourceTree = "<group>"; };
 		A4D08DE02C147C9200F2CD57 /* FavoriteParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteParserTests.swift; sourceTree = "<group>"; };
 		A4D08DE22C147C9C00F2CD57 /* AdBannerParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdBannerParserTests.swift; sourceTree = "<group>"; };
+		A4D08DE42C15489900F2CD57 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		A4D08DE62C15497100F2CD57 /* UIFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFactory.swift; sourceTree = "<group>"; };
+		A4D08DE82C154C9800F2CD57 /* PrefHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +214,7 @@
 			children = (
 				A47286212C1402AA003DDC64 /* MainTabBarController.swift */,
 				A47286292C140CA6003DDC64 /* HomeViewController.swift */,
+				A4D08DE42C15489900F2CD57 /* NotificationViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -255,8 +260,8 @@
 		A47286202C13FFE7003DDC64 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				A472862B2C140D4E003DDC64 /* StaticFunctions.swift */,
-				A472862D2C140DC2003DDC64 /* ExStaticFunctions.swift */,
+				A472862D2C140DC2003DDC64 /* FontFactory.swift */,
+				A4D08DE62C15497100F2CD57 /* UIFactory.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -289,6 +294,7 @@
 				A472863E2C1431B2003DDC64 /* DataErrors.swift */,
 				A47286402C143362003DDC64 /* JsonHelper.swift */,
 				A4D08DAD2C14503400F2CD57 /* DateHelper.swift */,
+				A4D08DE82C154C9800F2CD57 /* PrefHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -471,7 +477,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A472862E2C140DC2003DDC64 /* ExStaticFunctions.swift in Sources */,
+				A472862E2C140DC2003DDC64 /* FontFactory.swift in Sources */,
 				A4D08DC12C146C2D00F2CD57 /* AmountModels.swift in Sources */,
 				A47285BE2C13FC29003DDC64 /* AppDelegate.swift in Sources */,
 				A4D08DCB2C14745A00F2CD57 /* AdBannerModels.swift in Sources */,
@@ -494,7 +500,6 @@
 				A4D08DC52C146F3E00F2CD57 /* AmountFixedDepositParser.swift in Sources */,
 				A472864C2C143A3D003DDC64 /* DataLoadingProtocol.swift in Sources */,
 				A472864E2C143A6F003DDC64 /* DataLoader.swift in Sources */,
-				A472862C2C140D4E003DDC64 /* StaticFunctions.swift in Sources */,
 				A4D08DC92C14745000F2CD57 /* FavoriteModels.swift in Sources */,
 				A47286432C1435E4003DDC64 /* MessageViewModel.swift in Sources */,
 				A4D08DBD2C146BF000F2CD57 /* FavoriteLoader.swift in Sources */,
@@ -503,9 +508,12 @@
 				A472863C2C1430F6003DDC64 /* MessageParser.swift in Sources */,
 				A47286362C14302D003DDC64 /* MessageModels.swift in Sources */,
 				A4D08DC32C146F0800F2CD57 /* AmountSavingParser.swift in Sources */,
+				A4D08DE72C15497100F2CD57 /* UIFactory.swift in Sources */,
 				A4D08DD52C1479D500F2CD57 /* AmountViewModel.swift in Sources */,
 				A47286262C1405F7003DDC64 /* ExColor.swift in Sources */,
 				A47285C02C13FC29003DDC64 /* SceneDelegate.swift in Sources */,
+				A4D08DE52C15489900F2CD57 /* NotificationViewController.swift in Sources */,
+				A4D08DE92C154C9800F2CD57 /* PrefHelper.swift in Sources */,
 				A472862A2C140CA6003DDC64 /* HomeViewController.swift in Sources */,
 				A4D08DAE2C14503400F2CD57 /* DateHelper.swift in Sources */,
 				A4D08DCD2C1475AB00F2CD57 /* FavoriteParser.swift in Sources */,

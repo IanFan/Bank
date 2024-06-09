@@ -118,12 +118,6 @@ extension UIColor {
 }
 
 extension UIColor {
-    public class var defineMainColor:UIColor {
-        return UIColor(hexString: "#7447ff")
-    }
-}
-
-extension UIColor {
     func toImage() -> UIImage {
         let width = UIScreen.main.bounds.size.width
         let height = UIScreen.main.bounds.size.height

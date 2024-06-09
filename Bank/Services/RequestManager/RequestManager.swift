@@ -11,8 +11,8 @@ struct RequestStruct {
     static let DOMAIN = "https://willywu0201.github.io/data/"
 }
 
-class RequestManager_pbn10 {
-    static let shared = RequestManager_pbn10()
+class RequestManager {
+    static let shared = RequestManager()
     
     internal var observation: NSKeyValueObservation?
     
@@ -21,7 +21,7 @@ class RequestManager_pbn10 {
     }
 }
 
-extension RequestManager_pbn10 {
+extension RequestManager {
     internal func httpGet(url: String, parameters: [String: Any]?, useToken: Bool = false, httpClosure: @escaping (_ data: Data?,_ response: URLResponse?,_ error: Error?) -> Void) {
         
         var urlStr: String = url

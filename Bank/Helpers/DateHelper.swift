@@ -8,7 +8,7 @@
 import Foundation
 
 class DateHelper {
-    func getTodayString_pbn10(date: Date = Date(), dateFromat: String = "yyyy-MM-dd") -> String {
+    static func getTodayString(date: Date = Date(), dateFromat: String = "yyyy-MM-dd") -> String {
         let format = DateFormatter()
         format.dateFormat = dateFromat
         var localTimeZoneAbbreviation: String { return TimeZone.current.abbreviation() ?? "UTC" }
@@ -19,7 +19,7 @@ class DateHelper {
         return formattedDate
     }
     
-    func isSameDay(key: String, saveToday: Bool = true) -> Bool {
+    static func isSameDay(key: String, saveToday: Bool = true) -> Bool {
         func getStoredTimeInterval(_ key: String) -> TimeInterval {
             let storedTimeInterval = UserDefaults.standard.double(forKey: key)
             return storedTimeInterval
@@ -48,11 +48,11 @@ class DateHelper {
         }
     }
     
-    func getCurrentTimeString() -> String {
+    static func getCurrentTimeString() -> String {
         return date2String(Date(), dateFormat: "yyyy/MM/dd HH:mm:ss")
     }
     
-    func date2String(_ date: Date, dateFormat: String = "yyyy/MM/dd HH:mm:ss") -> String {
+    static func date2String(_ date: Date, dateFormat: String = "yyyy/MM/dd HH:mm:ss") -> String {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "zh_Hant_TW")
         formatter.dateFormat = dateFormat
@@ -60,7 +60,7 @@ class DateHelper {
         return date
     }
 
-    func string2Date(_ string: String, dateFormat: String = "yyyy/MM/dd HH:mm:ss") -> Date? {
+    static func string2Date(_ string: String, dateFormat: String = "yyyy/MM/dd HH:mm:ss") -> Date? {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "zh_Hant_TW")
         formatter.dateFormat = dateFormat
@@ -68,7 +68,7 @@ class DateHelper {
         return date
     }
     
-    func string2TimeInterval(_ string: String, dateFormat: String = "yyyy/MM/dd HH:mm:ss") -> TimeInterval? {
+    static func string2TimeInterval(_ string: String, dateFormat: String = "yyyy/MM/dd HH:mm:ss") -> TimeInterval? {
         guard let date = string2Date(string, dateFormat: dateFormat) else {
             return nil
         }
