@@ -141,7 +141,6 @@ class HomeViewController: UIViewController {
             menuView.heightAnchor.constraint(equalToConstant: 192*scale),
         ])
         mainStackView.addArrangedSubview(menuView)
-        menuView.backgroundColor = .randomColor
         
         // favoriteView
         let favoriteView = HomeFavoriteView()

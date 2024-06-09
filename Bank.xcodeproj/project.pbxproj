@@ -70,6 +70,7 @@
 		A4D08DFE2C15C11B00F2CD57 /* HomeMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DFD2C15C11B00F2CD57 /* HomeMenuView.swift */; };
 		A4D08E002C15C16500F2CD57 /* HomeFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DFF2C15C16500F2CD57 /* HomeFavorite.swift */; };
 		A4D08E022C15C19100F2CD57 /* HomeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08E012C15C19100F2CD57 /* HomeAdView.swift */; };
+		A4D08E042C15D22C00F2CD57 /* HomeMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08E032C15D22C00F2CD57 /* HomeMenuModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +150,7 @@
 		A4D08DFD2C15C11B00F2CD57 /* HomeMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuView.swift; sourceTree = "<group>"; };
 		A4D08DFF2C15C16500F2CD57 /* HomeFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFavorite.swift; sourceTree = "<group>"; };
 		A4D08E012C15C19100F2CD57 /* HomeAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAdView.swift; sourceTree = "<group>"; };
+		A4D08E032C15D22C00F2CD57 /* HomeMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +219,7 @@
 				A4D08DC82C14745000F2CD57 /* FavoriteModels.swift */,
 				A4D08DCA2C14745A00F2CD57 /* AdBannerModels.swift */,
 				A4D08DFB2C15B42900F2CD57 /* HomeMoenyModel.swift */,
+				A4D08E032C15D22C00F2CD57 /* HomeMenuModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				A47286432C1435E4003DDC64 /* MessageViewModel.swift in Sources */,
 				A4D08DBD2C146BF000F2CD57 /* FavoriteLoader.swift in Sources */,
 				A47286532C143B84003DDC64 /* ParseStrategy.swift in Sources */,
+				A4D08E042C15D22C00F2CD57 /* HomeMenuModel.swift in Sources */,
 				A47286342C140EB2003DDC64 /* ExUIView.swift in Sources */,
 				A472863C2C1430F6003DDC64 /* MessageParser.swift in Sources */,
 				A47286362C14302D003DDC64 /* MessageModels.swift in Sources */,
