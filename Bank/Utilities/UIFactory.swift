@@ -11,7 +11,6 @@ import UIKit
 class UIFactory {
     static func getScale() -> CGFloat {
         return getWindowSize().width / 375
-    //    return isPad() ? getWindowSize().width / 1024 : getWindowSize().width / 375
     }
 
     static func getWindowSize() -> CGSize {

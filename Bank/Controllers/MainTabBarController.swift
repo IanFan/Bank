@@ -57,7 +57,7 @@ enum MainTabEnum: Int {
 class MainTabBarController: UITabBarController {
     var customTabBar: MainTabBar!
     
-    let scale: CGFloat = UIFactory.getWindowSize().width / 375
+    let scale: CGFloat = UIFactory.getScale()
     
     override func viewDidLoad() {
         super.viewDidLoad()

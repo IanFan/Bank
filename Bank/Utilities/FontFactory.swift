@@ -17,6 +17,8 @@ enum FontEnum: String {
     case HelveticaNeueBold
     case HelveticaNeueBoldItalic
     case SFProTextMedium
+    case SFProTextBold
+    case SFProTextRegular
     
     init?(rawValue _: String) {
         return nil
@@ -32,6 +34,8 @@ enum FontEnum: String {
         case .HelveticaNeueBold: return "HelveticaNeue-Bold"
         case .HelveticaNeueBoldItalic: return "HelveticaNeue-BoldItalic"
         case .SFProTextMedium: return "SFProText-Medium"
+        case .SFProTextBold: return "SFProText-Bold"
+        case .SFProTextRegular: return "SFProText-Regular"
         }
     }
 }

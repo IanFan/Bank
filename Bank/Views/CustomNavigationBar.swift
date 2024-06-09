@@ -9,28 +9,32 @@ import Foundation
 import UIKit
 
 class CustomNavigationBar: UIView {
-    private lazy var backButton: UIButton = {
-        let button = UIFactory.createImageButton(name: "iconArrowWTailBack")
-        button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-        button.contentMode = .scaleAspectFit
-        return button
+    private lazy var ivBack: UIImageView = {
+        let iv = UIFactory.createImage(name: "iconArrowWTailBack")
+        iv.contentMode = .scaleAspectFit
+        return iv
     }()
     
-    // 标题标签
-    private lazy var titleLabel: UILabel = {
-        let label = UIFactory.createLabel(size: 18*scale, text: "Notificaiton".localized(), color: ColorEnum.systemGray10.color, font: .SFProTextMedium)
-        label.textAlignment = .center
-        return label
+    private lazy var btnBack: UIButton = {
+        let btn = UIFactory.createImageButton(name: "")
+        btn.addTarget(self, action: #selector(btnBackTapped), for: .touchUpInside)
+        return btn
+    }()
+    
+    private lazy var lbTitle: UILabel = {
+        let lb = UIFactory.createLabel(size: 18*scale, text: "Notificaiton".localized(), color: ColorEnum.systemGray10.color, font: .SFProTextMedium)
+        lb.textAlignment = .center
+        return lb
     }()
     
     var title: String? {
         didSet {
-            titleLabel.text = title
+            lbTitle.text = title
         }
     }
     
-    var backButtonAction: (() -> Void)?
-    let scale: CGFloat = UIFactory.getWindowSize().width / 375
+    var btnBackAction: (() -> Void)?
+    let scale: CGFloat = UIFactory.getScale()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -44,24 +48,30 @@ class CustomNavigationBar: UIView {
     }
     
     private func setupViews() {
-        addSubview(backButton)
-        addSubview(titleLabel)
+        addSubview(ivBack)
+        addSubview(btnBack)
+        addSubview(lbTitle)
         
         NSLayoutConstraint.activate([
-            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15*scale),
-            backButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            backButton.widthAnchor.constraint(equalToConstant: 24*scale),
-            backButton.heightAnchor.constraint(equalToConstant: 24*scale),
+            ivBack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15*scale),
+            ivBack.centerYAnchor.constraint(equalTo: centerYAnchor),
+            ivBack.widthAnchor.constraint(equalToConstant: 24*scale),
+            ivBack.heightAnchor.constraint(equalToConstant: 24*scale),
             
-            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50*scale),
-            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50*scale),
-            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            btnBack.leadingAnchor.constraint(equalTo: leadingAnchor),
+            btnBack.topAnchor.constraint(equalTo: topAnchor),
+            btnBack.bottomAnchor.constraint(equalTo: bottomAnchor),
+            btnBack.widthAnchor.constraint(equalToConstant: 50*scale),
+            
+            lbTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50*scale),
+            lbTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50*scale),
+            lbTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
+            lbTitle.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
     }
     
-    // 上一页按钮点击事件处理
-    @objc private func backButtonTapped() {
-        backButtonAction?()
+    @objc private func btnBackTapped() {
+        btnBackAction?()
+        print("btnBackTapped")
     }
 }

@@ -14,7 +14,7 @@ class HomeViewController: UIViewController {
     var favoriteViewModel = FavoriteViewModel()
     var adBannerViewModel = AdBannerViewModel()
     
-    let scale: CGFloat = UIFactory.getWindowSize().width / 375
+    let scale: CGFloat = UIFactory.getScale()
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .darkContent
@@ -32,7 +32,6 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor(hexString: "#FAFAFA")
         
         setupUI()
         
@@ -41,13 +40,15 @@ class HomeViewController: UIViewController {
         self.favoriteViewModel.delegate = self
         self.adBannerViewModel.delegate = self
         
-        self.messageViewModel.loadData(isRefresh: true)
-        self.amountViewModel.loadData(isRefresh: true)
-        self.favoriteViewModel.loadData(isRefresh: true)
-        self.adBannerViewModel.loadData(isRefresh: true)
+//        self.messageViewModel.loadData(isRefresh: true)
+//        self.amountViewModel.loadData(isRefresh: true)
+//        self.favoriteViewModel.loadData(isRefresh: true)
+//        self.adBannerViewModel.loadData(isRefresh: true)
     }
     
     func setupUI() {
+        view.backgroundColor = ColorEnum.localWhite2.color
+        
         let button = UIFactory.createTextButton(size: 10, text: "button", textColor: .black, bgColor: .gray)
         self.view.addSubview(button)
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
@@ -160,7 +161,7 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController {
     @objc func buttonTapped() {
-        let vc = NotificationViewController()
+        let vc = NotificationViewController(messageViewModel: messageViewModel)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
