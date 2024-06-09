@@ -92,7 +92,7 @@ class MenuView: UIView {
             btnIcon.widthAnchor.constraint(equalToConstant: 56*scale),
             btnIcon.heightAnchor.constraint(equalToConstant: 56*scale),
             
-            lbTitle.topAnchor.constraint(equalTo: btnIcon.bottomAnchor),
+            lbTitle.topAnchor.constraint(equalTo: btnIcon.bottomAnchor, constant: 1*scale),
             lbTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8*scale),
             lbTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8*scale),
         ])

@@ -78,6 +78,6 @@ class NotificationCell: UICollectionViewCell {
         lbTitle.text = item.title
         lbTime.text = item.updateDateTime
         lbMessage.text = item.message
-        vStatus.alpha = item.status ? 1.0 : 0
+        vStatus.alpha = item.status ? 0 : 1.0
     }
 }

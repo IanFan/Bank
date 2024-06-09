@@ -58,10 +58,12 @@ class HomeViewController: UIViewController {
         
         setupUI()
         
-        self.messageViewModel.loadData(isRefresh: false)
-        self.amountViewModel.loadData(isRefresh: false)
-        self.favoriteViewModel.loadData(isRefresh: false)
-        self.adBannerViewModel.loadData(isRefresh: false)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.messageViewModel.loadData(isRefresh: false)
+            self.amountViewModel.loadData(isRefresh: false)
+            self.favoriteViewModel.loadData(isRefresh: false)
+            self.adBannerViewModel.loadData(isRefresh: false)
+        }
     }
     
     func setupUI() {
@@ -163,7 +165,7 @@ class HomeViewController: UIViewController {
         NSLayoutConstraint.activate([
             adView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             adView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            adView.heightAnchor.constraint(equalToConstant: 96*scale),
+            adView.heightAnchor.constraint(equalToConstant: 116*scale),
         ])
         mainStackView.addArrangedSubview(adView)
         

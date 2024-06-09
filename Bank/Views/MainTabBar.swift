@@ -23,6 +23,7 @@ class MainTabBar: UITabBar {
         setup(tabBarConroller: tabBarConroller)
         roundTabBar(tabBarConroller: tabBarConroller)
         adjustTabBarPostion(tabBarConroller: tabBarConroller)
+        customizeTabBarItemFont()
     }
     
     private func setup(tabBarConroller: UITabBarController) {
@@ -61,5 +62,15 @@ class MainTabBar: UITabBar {
         
         tabBar.itemPositioning = .centered
         tabBar.itemSpacing = 1*scale
+    }
+    
+    private func customizeTabBarItemFont() {
+        guard let items = items else { return }
+        
+        if let font = UIFont(name: FontEnum.SFProTextSemibold.rawValue, size: 12*scale) {
+            for item in items {
+                item.setTitleTextAttributes([NSAttributedString.Key.font: font], for: .normal)
+            }
+        }
     }
 }

@@ -34,7 +34,7 @@ class AdCell: UICollectionViewCell {
         
         self.ivAd = ivAd
         
-        ivAd.contentMode = .scaleAspectFit
+        ivAd.contentMode = .scaleAspectFill
         
         NSLayoutConstraint.activate([
             ivAd.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),

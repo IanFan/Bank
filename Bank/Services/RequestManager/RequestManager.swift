@@ -17,7 +17,6 @@ class RequestManager {
     internal var observation: NSKeyValueObservation?
     
     private init() {
-        print("RequestManager init")
     }
 }
 

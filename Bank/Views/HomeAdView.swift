@@ -114,7 +114,7 @@ extension HomeAdView: UICollectionViewDelegateFlowLayout {
                         layout _: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width
-        let height = collectionView.frame.height
+        let height = 88*scale
         let size = CGSize(width: width, height: height)
         return size
     }

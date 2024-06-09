@@ -36,30 +36,30 @@ class GenericSingleDataLoader<T: GenericSingleDataLoaderProtocol> {
         // load from Cache
         switch try dataLoader.loadDataFromCache(params: params) {
         case .success(let cacheData):
-            print("\(#function) Cache params:\(params.self)")
+//            print("\(#function) Cache params:\(params.self)")
             return .success(cacheData)
         case .failure(let error):
-            print("\(#function) Cache error: \(error)")
+//            print("\(#function) Cache error: \(error)")
             break
         }
         
         // load from Local
         switch try dataLoader.loadDataLocal(params: params) {
         case .success(let localData):
-            print("\(#function) LocalData params:\(params.self)")
+//            print("\(#function) LocalData params:\(params.self)")
             return .success(localData)
         case .failure(let error):
-            print("\(#function) LocalData error: \(error)")
+//            print("\(#function) LocalData error: \(error)")
             break
         }
         
         // load from Online
         switch try await dataLoader.loadDataOnline(params: params) {
         case .success(let localData):
-            print("\(#function) OnlineData params:\(params.self)")
+//            print("\(#function) OnlineData params:\(params.self)")
             return .success(localData)
         case .failure(let error):
-            print("\(#function) OnlineData error: \(error)")
+//            print("\(#function) OnlineData error: \(error)")
             return .failure(error)
         }
     }
@@ -68,20 +68,20 @@ class GenericSingleDataLoader<T: GenericSingleDataLoaderProtocol> {
         // load from Cache
         switch try dataLoader.loadDataFromCache(params: params) {
         case .success(let cacheData):
-            print("\(#function) Cache params:\(params.self)")
+//            print("\(#function) Cache params:\(params.self)")
             return .success(cacheData)
         case .failure(let error):
-            print("\(#function) Cache error: \(error)")
+//            print("\(#function) Cache error: \(error)")
             break
         }
         
         // load from Local
         switch try dataLoader.loadDataLocal(params: params) {
         case .success(let localData):
-            print("\(#function) LocalData params:\(params.self)")
+//            print("\(#function) LocalData params:\(params.self)")
             return .success(localData)
         case .failure(let error):
-            print("\(#function) LocalData error: \(error)")
+//            print("\(#function) LocalData error: \(error)")
             return .failure(error)
         }
     }

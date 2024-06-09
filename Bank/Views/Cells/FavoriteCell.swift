@@ -29,7 +29,7 @@ class FavoriteCell: UICollectionViewCell {
     
     func setupUI() {
         let ivIcon = UIFactory.createImage(name: "")
-        let lbTitle = UIFactory.createLabel(size: 12*scale, text: "", color: ColorEnum.systemGray10.color, font: .SFProTextRegular)
+        let lbTitle = UIFactory.createLabel(size: 12*scale, text: "", color: ColorEnum.systemGray6.color, font: .SFProTextRegular)
         
         contentView.addSubview(ivIcon)
         contentView.addSubview(lbTitle)
@@ -47,7 +47,7 @@ class FavoriteCell: UICollectionViewCell {
             
             lbTitle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             lbTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            lbTitle.topAnchor.constraint(equalTo: ivIcon.bottomAnchor),
+            lbTitle.topAnchor.constraint(equalTo: ivIcon.bottomAnchor, constant: 1*scale),
         ])
         
     }

@@ -17,7 +17,6 @@ class DownloadImageViewModel: NSObject {
             switch result {
             case .success(let image):
                 DispatchQueue.main.async {
-                    print("iamge:\(image.size)")
                     iv.image = image
                 }
             case .failure(let error):

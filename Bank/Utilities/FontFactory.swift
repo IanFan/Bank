@@ -20,6 +20,7 @@ enum FontEnum: String {
     case SFProTextHeavy
     case SFProTextMedium
     case SFProTextRegular
+    case SFProTextSemibold
     
     init?(rawValue _: String) {
         return nil
@@ -38,6 +39,7 @@ enum FontEnum: String {
         case .SFProTextHeavy: return "SFProText-Heavy"
         case .SFProTextMedium: return "SFProText-Medium"
         case .SFProTextRegular: return "SFProText-Regular"
+        case .SFProTextSemibold: return "SFProText-Semibold"
         }
     }
 }

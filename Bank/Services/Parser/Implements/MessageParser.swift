@@ -16,7 +16,7 @@ class MessageParser: JSONParserStrategy {
             let responseModel = try decoder.decode(MessageResponseModel.self, from: data)
             return .success(responseModel)
         } catch {
-            print("Parser Failed to load data: \(error.localizedDescription)")
+//            print("Parser Failed to load data: \(error.localizedDescription)")
             return .failure(ParseError.parseError)
         }
     }
