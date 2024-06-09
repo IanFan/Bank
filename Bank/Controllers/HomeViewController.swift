@@ -55,17 +55,6 @@ class HomeViewController: UIViewController {
     func setupUI() {
         view.backgroundColor = ColorEnum.localWhite2.color
         
-//        let button = UIFactory.createTextButton(size: 10, text: "button", textColor: .black, bgColor: .gray)
-//        self.view.addSubview(button)
-//        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-//        
-//        NSLayoutConstraint.activate([
-//            button.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100),
-//            button.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 100),
-//            button.widthAnchor.constraint(equalToConstant: 100),
-//            button.heightAnchor.constraint(equalToConstant: 50),
-//        ])
-        
         // UIScrollView
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -143,7 +132,7 @@ class HomeViewController: UIViewController {
         mainStackView.addArrangedSubview(menuView)
         
         // favoriteView
-        let favoriteView = HomeFavoriteView()
+        let favoriteView = HomeFavoriteView(frame: .zero, favoriteViewModel: favoriteViewModel)
         view.addSubview(favoriteView)
         self.favoriteView = favoriteView
         favoriteView.translatesAutoresizingMaskIntoConstraints = false
@@ -153,7 +142,6 @@ class HomeViewController: UIViewController {
             favoriteView.heightAnchor.constraint(equalToConstant: 136*scale),
         ])
         mainStackView.addArrangedSubview(favoriteView)
-        favoriteView.backgroundColor = .randomColor
         
         // adView
         let adView = HomeAdView()
@@ -186,10 +174,10 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController {
     @objc func handleRefresh() {
-//        self.messageViewModel.loadData(isRefresh: true)
+        self.messageViewModel.loadData(isRefresh: true)
         self.amountViewModel.loadData(isRefresh: true)
-//        self.favoriteViewModel.loadData(isRefresh: true)
-//        self.adBannerViewModel.loadData(isRefresh: true)
+        self.favoriteViewModel.loadData(isRefresh: true)
+        self.adBannerViewModel.loadData(isRefresh: true)
         
         self.refreshControl?.endRefreshing()
     }
@@ -214,12 +202,7 @@ extension HomeViewController: AmountViewModelProtocol {
 
 extension HomeViewController: FavoriteViewModelProtocol {
     func updateFavoriteUI() {
-        let objs = favoriteViewModel.favorites
-//        for obj in objs {
-//            print("obj nickname: \(obj.nickname)")
-//            print("obj transType: \(obj.transType)")
-//        }
-        print("favorites count: \(objs.count)")
+        favoriteView?.updateWithViewModel()
     }
 }
 

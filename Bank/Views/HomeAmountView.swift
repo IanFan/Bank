@@ -94,7 +94,17 @@ class HomeAmountView: UIView {
             smallStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
         ])
         
-        for (curr, model) in modelsDic {
+//        for (curr, model) in modelsDic {
+        if let model = modelsDic["USD"] {
+            let smallView = HomeMoneyView()
+            smallView.translatesAutoresizingMaskIntoConstraints = false
+            smallView.heightAnchor.constraint(equalToConstant: 64*scale).isActive = true
+            smallView.setupContentHomeMoenyModel(model, isEyeHided: isEyeHided)
+            
+            smallStackView.addArrangedSubview(smallView)
+            moneyViewsDic[model.curr] = smallView
+        }
+        if let model = modelsDic["KHR"] {
             let smallView = HomeMoneyView()
             smallView.translatesAutoresizingMaskIntoConstraints = false
             smallView.heightAnchor.constraint(equalToConstant: 64*scale).isActive = true

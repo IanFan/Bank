@@ -68,9 +68,11 @@
 		A4D08DFA2C15A8E100F2CD57 /* ExDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DF92C15A8E100F2CD57 /* ExDouble.swift */; };
 		A4D08DFC2C15B42900F2CD57 /* HomeMoenyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DFB2C15B42900F2CD57 /* HomeMoenyModel.swift */; };
 		A4D08DFE2C15C11B00F2CD57 /* HomeMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DFD2C15C11B00F2CD57 /* HomeMenuView.swift */; };
-		A4D08E002C15C16500F2CD57 /* HomeFavorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DFF2C15C16500F2CD57 /* HomeFavorite.swift */; };
+		A4D08E002C15C16500F2CD57 /* HomeFavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DFF2C15C16500F2CD57 /* HomeFavoriteView.swift */; };
 		A4D08E022C15C19100F2CD57 /* HomeAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08E012C15C19100F2CD57 /* HomeAdView.swift */; };
 		A4D08E042C15D22C00F2CD57 /* HomeMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08E032C15D22C00F2CD57 /* HomeMenuModel.swift */; };
+		A4D08E062C15DB2500F2CD57 /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08E052C15DB2500F2CD57 /* FavoriteCell.swift */; };
+		A4D08E082C15DB7A00F2CD57 /* HomeFavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08E072C15DB7A00F2CD57 /* HomeFavoriteModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,9 +150,11 @@
 		A4D08DF92C15A8E100F2CD57 /* ExDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExDouble.swift; sourceTree = "<group>"; };
 		A4D08DFB2C15B42900F2CD57 /* HomeMoenyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMoenyModel.swift; sourceTree = "<group>"; };
 		A4D08DFD2C15C11B00F2CD57 /* HomeMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuView.swift; sourceTree = "<group>"; };
-		A4D08DFF2C15C16500F2CD57 /* HomeFavorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFavorite.swift; sourceTree = "<group>"; };
+		A4D08DFF2C15C16500F2CD57 /* HomeFavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFavoriteView.swift; sourceTree = "<group>"; };
 		A4D08E012C15C19100F2CD57 /* HomeAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAdView.swift; sourceTree = "<group>"; };
 		A4D08E032C15D22C00F2CD57 /* HomeMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuModel.swift; sourceTree = "<group>"; };
+		A4D08E052C15DB2500F2CD57 /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
+		A4D08E072C15DB7A00F2CD57 /* HomeFavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFavoriteModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +224,7 @@
 				A4D08DCA2C14745A00F2CD57 /* AdBannerModels.swift */,
 				A4D08DFB2C15B42900F2CD57 /* HomeMoenyModel.swift */,
 				A4D08E032C15D22C00F2CD57 /* HomeMenuModel.swift */,
+				A4D08E072C15DB7A00F2CD57 /* HomeFavoriteModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -253,7 +258,7 @@
 				A4D08DF52C1598E600F2CD57 /* HomeNavigationView.swift */,
 				A4D08DF72C15A49C00F2CD57 /* HomeAmountView.swift */,
 				A4D08DFD2C15C11B00F2CD57 /* HomeMenuView.swift */,
-				A4D08DFF2C15C16500F2CD57 /* HomeFavorite.swift */,
+				A4D08DFF2C15C16500F2CD57 /* HomeFavoriteView.swift */,
 				A4D08E012C15C19100F2CD57 /* HomeAdView.swift */,
 				A4D08DEA2C15579600F2CD57 /* CustomNavigationView.swift */,
 			);
@@ -416,6 +421,7 @@
 			isa = PBXGroup;
 			children = (
 				A4D08DF12C15733600F2CD57 /* NotificationCell.swift */,
+				A4D08E052C15DB2500F2CD57 /* FavoriteCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -527,12 +533,13 @@
 				A4D08DF22C15733600F2CD57 /* NotificationCell.swift in Sources */,
 				A47285BE2C13FC29003DDC64 /* AppDelegate.swift in Sources */,
 				A4D08DCB2C14745A00F2CD57 /* AdBannerModels.swift in Sources */,
-				A4D08E002C15C16500F2CD57 /* HomeFavorite.swift in Sources */,
+				A4D08E002C15C16500F2CD57 /* HomeFavoriteView.swift in Sources */,
 				A472863F2C1431B2003DDC64 /* DataErrors.swift in Sources */,
 				A4D08DB92C14606800F2CD57 /* RequestManager.swift in Sources */,
 				A4D08DFC2C15B42900F2CD57 /* HomeMoenyModel.swift in Sources */,
 				A47286222C1402AA003DDC64 /* MainTabBarController.swift in Sources */,
 				A4D08DED2C155AFB00F2CD57 /* LanguageManager.swift in Sources */,
+				A4D08E082C15DB7A00F2CD57 /* HomeFavoriteModel.swift in Sources */,
 				A4D08DA42C143EF800F2CD57 /* MessageLoader.swift in Sources */,
 				A4D08E022C15C19100F2CD57 /* HomeAdView.swift in Sources */,
 				A47286512C143B58003DDC64 /* LoadFileStrategy.swift in Sources */,
@@ -548,6 +555,7 @@
 				A4D08DCF2C1475EE00F2CD57 /* AdBannerParser.swift in Sources */,
 				A4D08DD92C1479F400F2CD57 /* AdBannerViewModel.swift in Sources */,
 				A4D08DD12C1476A300F2CD57 /* AmountFixedDepositLoader.swift in Sources */,
+				A4D08E062C15DB2500F2CD57 /* FavoriteCell.swift in Sources */,
 				A47286322C140E24003DDC64 /* ExUISearchBar.swift in Sources */,
 				A4D08DC52C146F3E00F2CD57 /* AmountFixedDepositParser.swift in Sources */,
 				A472864C2C143A3D003DDC64 /* DataLoadingProtocol.swift in Sources */,

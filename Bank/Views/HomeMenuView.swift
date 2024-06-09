@@ -102,6 +102,6 @@ class MenuView: UIView {
         self.item = model
         
         btnIcon?.setBackgroundImage(UIImage(named: model.imageName), for: .normal)
-        lbTitle?.text = model.title
+        lbTitle?.text = model.title.localized()
     }
 }
