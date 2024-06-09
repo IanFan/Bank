@@ -59,10 +59,14 @@
 		A4D08DE52C15489900F2CD57 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DE42C15489900F2CD57 /* NotificationViewController.swift */; };
 		A4D08DE72C15497100F2CD57 /* UIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DE62C15497100F2CD57 /* UIFactory.swift */; };
 		A4D08DE92C154C9800F2CD57 /* PrefHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DE82C154C9800F2CD57 /* PrefHelper.swift */; };
-		A4D08DEB2C15579600F2CD57 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DEA2C15579600F2CD57 /* CustomNavigationBar.swift */; };
+		A4D08DEB2C15579600F2CD57 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DEA2C15579600F2CD57 /* CustomNavigationView.swift */; };
 		A4D08DED2C155AFB00F2CD57 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DEC2C155AFB00F2CD57 /* LanguageManager.swift */; };
 		A4D08DEF2C155C9200F2CD57 /* ColorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DEE2C155C9200F2CD57 /* ColorFactory.swift */; };
 		A4D08DF22C15733600F2CD57 /* NotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DF12C15733600F2CD57 /* NotificationCell.swift */; };
+		A4D08DF62C1598E600F2CD57 /* HomeNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DF52C1598E600F2CD57 /* HomeNavigationView.swift */; };
+		A4D08DF82C15A49C00F2CD57 /* HomeAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DF72C15A49C00F2CD57 /* HomeAmountView.swift */; };
+		A4D08DFA2C15A8E100F2CD57 /* ExDouble.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DF92C15A8E100F2CD57 /* ExDouble.swift */; };
+		A4D08DFC2C15B42900F2CD57 /* HomeMoenyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DFB2C15B42900F2CD57 /* HomeMoenyModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,10 +135,14 @@
 		A4D08DE42C15489900F2CD57 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		A4D08DE62C15497100F2CD57 /* UIFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFactory.swift; sourceTree = "<group>"; };
 		A4D08DE82C154C9800F2CD57 /* PrefHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefHelper.swift; sourceTree = "<group>"; };
-		A4D08DEA2C15579600F2CD57 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		A4D08DEA2C15579600F2CD57 /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
 		A4D08DEC2C155AFB00F2CD57 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
 		A4D08DEE2C155C9200F2CD57 /* ColorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFactory.swift; sourceTree = "<group>"; };
 		A4D08DF12C15733600F2CD57 /* NotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCell.swift; sourceTree = "<group>"; };
+		A4D08DF52C1598E600F2CD57 /* HomeNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeNavigationView.swift; sourceTree = "<group>"; };
+		A4D08DF72C15A49C00F2CD57 /* HomeAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeAmountView.swift; sourceTree = "<group>"; };
+		A4D08DF92C15A8E100F2CD57 /* ExDouble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExDouble.swift; sourceTree = "<group>"; };
+		A4D08DFB2C15B42900F2CD57 /* HomeMoenyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMoenyModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +210,7 @@
 				A4D08DC02C146C2D00F2CD57 /* AmountModels.swift */,
 				A4D08DC82C14745000F2CD57 /* FavoriteModels.swift */,
 				A4D08DCA2C14745A00F2CD57 /* AdBannerModels.swift */,
+				A4D08DFB2C15B42900F2CD57 /* HomeMoenyModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -232,7 +241,9 @@
 			children = (
 				A4D08DF02C15730C00F2CD57 /* Cells */,
 				A47286232C1402E0003DDC64 /* MainTabBar.swift */,
-				A4D08DEA2C15579600F2CD57 /* CustomNavigationBar.swift */,
+				A4D08DF52C1598E600F2CD57 /* HomeNavigationView.swift */,
+				A4D08DF72C15A49C00F2CD57 /* HomeAmountView.swift */,
+				A4D08DEA2C15579600F2CD57 /* CustomNavigationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -263,6 +274,7 @@
 				A472862F2C140DF3003DDC64 /* ExImage.swift */,
 				A47286312C140E24003DDC64 /* ExUISearchBar.swift */,
 				A47286332C140EB2003DDC64 /* ExUIView.swift */,
+				A4D08DF92C15A8E100F2CD57 /* ExDouble.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -504,6 +516,7 @@
 				A4D08DCB2C14745A00F2CD57 /* AdBannerModels.swift in Sources */,
 				A472863F2C1431B2003DDC64 /* DataErrors.swift in Sources */,
 				A4D08DB92C14606800F2CD57 /* RequestManager.swift in Sources */,
+				A4D08DFC2C15B42900F2CD57 /* HomeMoenyModel.swift in Sources */,
 				A47286222C1402AA003DDC64 /* MainTabBarController.swift in Sources */,
 				A4D08DED2C155AFB00F2CD57 /* LanguageManager.swift in Sources */,
 				A4D08DA42C143EF800F2CD57 /* MessageLoader.swift in Sources */,
@@ -511,6 +524,7 @@
 				A4D08DBB2C146BE400F2CD57 /* AmountSavingLoader.swift in Sources */,
 				A4D08DBF2C146BFE00F2CD57 /* AdBannerLoader.swift in Sources */,
 				A47286392C1430AD003DDC64 /* JsonParserStrategy.swift in Sources */,
+				A4D08DF62C1598E600F2CD57 /* HomeNavigationView.swift in Sources */,
 				A4D08DD72C1479E300F2CD57 /* FavoriteViewModel.swift in Sources */,
 				A4D08DC72C146F6B00F2CD57 /* AmountDigitalParser.swift in Sources */,
 				A4D08DEF2C155C9200F2CD57 /* ColorFactory.swift in Sources */,
@@ -530,11 +544,13 @@
 				A47286342C140EB2003DDC64 /* ExUIView.swift in Sources */,
 				A472863C2C1430F6003DDC64 /* MessageParser.swift in Sources */,
 				A47286362C14302D003DDC64 /* MessageModels.swift in Sources */,
-				A4D08DEB2C15579600F2CD57 /* CustomNavigationBar.swift in Sources */,
+				A4D08DEB2C15579600F2CD57 /* CustomNavigationView.swift in Sources */,
 				A4D08DC32C146F0800F2CD57 /* AmountSavingParser.swift in Sources */,
+				A4D08DFA2C15A8E100F2CD57 /* ExDouble.swift in Sources */,
 				A4D08DE72C15497100F2CD57 /* UIFactory.swift in Sources */,
 				A4D08DD52C1479D500F2CD57 /* AmountViewModel.swift in Sources */,
 				A47286262C1405F7003DDC64 /* ExColor.swift in Sources */,
+				A4D08DF82C15A49C00F2CD57 /* HomeAmountView.swift in Sources */,
 				A47285C02C13FC29003DDC64 /* SceneDelegate.swift in Sources */,
 				A4D08DE52C15489900F2CD57 /* NotificationViewController.swift in Sources */,
 				A4D08DE92C154C9800F2CD57 /* PrefHelper.swift in Sources */,

@@ -12,7 +12,7 @@ protocol AdBannerViewModelProtocol: AnyObject {
 }
 
 class AdBannerViewModel: NSObject {
-    var delegate: AdBannerViewModelProtocol?
+    weak var delegate: AdBannerViewModelProtocol?
     var adBanners = [AdBannerModel]()
     
     func loadData(isRefresh: Bool = false) {
@@ -34,16 +34,18 @@ class AdBannerViewModel: NSObject {
         let params = FileParams_adBanner(fileName: fileName, fileExt: fileExt)
         let loader = GenericSingleDataLoader(dataLoader: AdBannerLoader())
         loader.loadData(params: params, completion: { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let resultParams):
-                guard let objs = resultParams.result?.bannerList, let sortedObjs = self?.sortAdBannerObjs(objs: objs) else {
+                guard let objs = resultParams.result?.bannerList else {
                     DispatchQueue.main.async {
                         completion(.failure(LoadError.emptyDataError))
                     }
                     return
                 }
+                let sortedObjs = self.sortAdBannerObjs(objs: objs)
                 DispatchQueue.main.async {
-                    self?.adBanners = sortedObjs
+                    self.adBanners = sortedObjs
                     completion(.success(sortedObjs))
                 }
             case .failure(let error):

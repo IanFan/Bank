@@ -12,10 +12,10 @@ protocol AmountViewModelProtocol: AnyObject {
 }
 
 class AmountViewModel: NSObject {
-    var delegate: AmountViewModelProtocol?
-    var savings = [AmountSavingModel]()
-    var fixedDeposits = [AmountFixedDepositModel]()
-    var digitals = [AmountDigitalModel]()
+    weak var delegate: AmountViewModelProtocol?
+    var savingsDic = [String: [AmountSavingModel]]()
+    var fixedDepositsDic = [String: [AmountFixedDepositModel]]()
+    var digitalsDic = [String: [AmountDigitalModel]]()
     
     func loadData(isRefresh: Bool = false) {
         let mainGroup = DispatchGroup()
@@ -102,16 +102,17 @@ class AmountViewModel: NSObject {
         let params = FileParams_amountSaving(fileName: fileName, fileExt: fileExt)
         let loader = GenericSingleDataLoader(dataLoader: AmountSavingLoader())
         loader.loadData(params: params, completion: { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let resultParams):
-                guard let objs = resultParams.result?.savingsList else {
+                guard let objs = resultParams.result?.savingsList, !objs.isEmpty else {
                     DispatchQueue.main.async {
                         completion(.failure(LoadError.emptyDataError))
                     }
                     return
                 }
                 DispatchQueue.main.async {
-                    self?.savings = objs
+                    self.savingsDic[objs[0].curr] = objs
                     completion(.success(objs))
                 }
             case .failure(let error):
@@ -135,16 +136,17 @@ class AmountViewModel: NSObject {
         let params = FileParams_amountFixedDeposit(fileName: fileName, fileExt: fileExt)
         let loader = GenericSingleDataLoader(dataLoader: AmountFixedDepositLoader())
         loader.loadData(params: params, completion: { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let resultParams):
-                guard let objs = resultParams.result?.fixedDepositList else {
+                guard let objs = resultParams.result?.fixedDepositList, !objs.isEmpty else {
                     DispatchQueue.main.async {
                         completion(.failure(LoadError.emptyDataError))
                     }
                     return
                 }
                 DispatchQueue.main.async {
-                    self?.fixedDeposits = objs
+                    self.fixedDepositsDic[objs[0].curr] = objs
                     completion(.success(objs))
                 }
             case .failure(let error):
@@ -168,16 +170,17 @@ class AmountViewModel: NSObject {
         let params = FileParams_amountDigital(fileName: fileName, fileExt: fileExt)
         let loader = GenericSingleDataLoader(dataLoader: AmountDigitalLoader())
         loader.loadData(params: params, completion: { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let resultParams):
-                guard let objs = resultParams.result?.digitalList else {
+                guard let objs = resultParams.result?.digitalList, !objs.isEmpty else {
                     DispatchQueue.main.async {
                         completion(.failure(LoadError.emptyDataError))
                     }
                     return
                 }
                 DispatchQueue.main.async {
-                    self?.digitals = objs
+                    self.digitalsDic[objs[0].curr] = objs
                     completion(.success(objs))
                 }
             case .failure(let error):
@@ -187,5 +190,27 @@ class AmountViewModel: NSObject {
                 }
             }
         })
+    }
+}
+
+extension AmountViewModel {
+    func getSumByCurr(_ curr: String) -> Double {
+        var sum: Double = 0
+        if let objs = savingsDic[curr] {
+            for obj in objs {
+                sum += obj.balance
+            }
+        }
+        if let objs = fixedDepositsDic[curr] {
+            for obj in objs {
+                sum += obj.balance
+            }
+        }
+        if let objs = digitalsDic[curr] {
+            for obj in objs {
+                sum += obj.balance
+            }
+        }
+        return sum
     }
 }

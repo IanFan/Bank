@@ -25,6 +25,7 @@ class NotificationViewController: UIViewController {
     init(messageViewModel: MessageViewModel) {
         self.messageViewModel = messageViewModel
         super.init(nibName: nil, bundle: nil)
+        messageViewModel.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -48,7 +49,7 @@ class NotificationViewController: UIViewController {
         messageViewModel.delegate = self
         
         // navigation
-        let nb = CustomNavigationBar(frame: .zero)
+        let nb = CustomNavigationView(frame: .zero)
         nb.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(nb)
         
@@ -85,7 +86,8 @@ class NotificationViewController: UIViewController {
         ])
         
         // action
-        nb.btnBackAction = {
+        nb.btnBackAction = { [weak self] in
+            guard let self = self else { return }
             self.navigationController?.popViewController(animated: true)
         }
     }
@@ -94,12 +96,12 @@ class NotificationViewController: UIViewController {
 extension NotificationViewController {
     @objc func refreshCollectionView(_ sender: UIRefreshControl) {
         messageViewModel?.loadData(isRefresh: true)
+        refreshControl?.endRefreshing()
     }
 }
 
 extension NotificationViewController: MessageViewModelProtocol {
     func updateMessageUI() {
-        refreshControl?.endRefreshing()
         cv?.reloadData()
     }
 }

@@ -13,7 +13,7 @@ protocol MessageViewModelProtocol: AnyObject {
 }
 
 class MessageViewModel: NSObject {
-    var delegate: MessageViewModelProtocol?
+    weak var delegate: MessageViewModelProtocol?
     var messages = [MessageModel]()
     let scale: CGFloat = UIFactory.getScale()
     
@@ -36,16 +36,18 @@ class MessageViewModel: NSObject {
         let params = FileParams_message(fileName: fileName, fileExt: fileExt)
         let loader = GenericSingleDataLoader(dataLoader: MessageLoader())
         loader.loadData(params: params, completion: { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let resultParams):
-                guard let objs = resultParams.result?.messages, let sortedObjs = self?.sortMessageObjs(objs: objs) else {
+                guard let objs = resultParams.result?.messages else {
                     DispatchQueue.main.async {
                         completion(.failure(LoadError.emptyDataError))
                     }
                     return
                 }
+                let sortedObjs = self.sortMessageObjs(objs: objs)
                 DispatchQueue.main.async {
-                    self?.messages = sortedObjs
+                    self.messages = sortedObjs
                     completion(.success(sortedObjs))
                 }
             case .failure(let error):

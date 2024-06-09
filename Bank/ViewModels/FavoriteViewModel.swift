@@ -12,7 +12,7 @@ protocol FavoriteViewModelProtocol: AnyObject {
 }
 
 class FavoriteViewModel: NSObject {
-    var delegate: FavoriteViewModelProtocol?
+    weak var delegate: FavoriteViewModelProtocol?
     var favorites = [FavoriteModel]()
     
     func loadData(isRefresh: Bool = false) {
@@ -34,16 +34,18 @@ class FavoriteViewModel: NSObject {
         let params = FileParams_favorite(fileName: fileName, fileExt: fileExt)
         let loader = GenericSingleDataLoader(dataLoader: FavoriteLoader())
         loader.loadData(params: params, completion: { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let resultParams):
-                guard let objs = resultParams.result?.favoriteList, let sortedObjs = self?.sortFavoriteObjs(objs: objs) else {
+                guard let objs = resultParams.result?.favoriteList else {
                     DispatchQueue.main.async {
                         completion(.failure(LoadError.emptyDataError))
                     }
                     return
                 }
+                let sortedObjs = self.sortFavoriteObjs(objs: objs)
                 DispatchQueue.main.async {
-                    self?.favorites = sortedObjs
+                    self.favorites = sortedObjs
                     completion(.success(sortedObjs))
                 }
             case .failure(let error):

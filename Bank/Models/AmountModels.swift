@@ -20,6 +20,10 @@ struct AmountSavingModel: Codable {
     let account: String
     let curr: String
     let balance: Double
+    
+    var formattedBalance: String {
+        return balance.formattedBalance()
+    }
 }
 
 // MARK: Fixed Deposit

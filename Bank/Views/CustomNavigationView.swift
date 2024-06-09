@@ -1,5 +1,5 @@
 //
-//  CustomNavigationBar.swift
+//  CustomNavigationView.swift
 //  Bank
 //
 //  Created by Ian Fan on 2024/6/9.
@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class CustomNavigationBar: UIView {
+class CustomNavigationView: UIView {
     private lazy var ivBack: UIImageView = {
         let iv = UIFactory.createImage(name: "iconArrowWTailBack")
         iv.contentMode = .scaleAspectFit

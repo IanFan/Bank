@@ -15,6 +15,9 @@ class HomeViewController: UIViewController {
     var adBannerViewModel = AdBannerViewModel()
     
     let scale: CGFloat = UIFactory.getScale()
+    var refreshControl: UIRefreshControl!
+    var navigationView: HomeNavigationView!
+    var amountView: HomeAmountView!
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .darkContent
@@ -28,6 +31,11 @@ class HomeViewController: UIViewController {
         super.viewWillAppear(animated)
         
         navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        self.messageViewModel.delegate = self
+        self.amountViewModel.delegate = self
+        self.favoriteViewModel.delegate = self
+        self.adBannerViewModel.delegate = self
     }
 
     override func viewDidLoad() {
@@ -35,160 +43,160 @@ class HomeViewController: UIViewController {
         
         setupUI()
         
-        self.messageViewModel.delegate = self
-        self.amountViewModel.delegate = self
-        self.favoriteViewModel.delegate = self
-        self.adBannerViewModel.delegate = self
-        
-//        self.messageViewModel.loadData(isRefresh: true)
-//        self.amountViewModel.loadData(isRefresh: true)
-//        self.favoriteViewModel.loadData(isRefresh: true)
-//        self.adBannerViewModel.loadData(isRefresh: true)
+        self.messageViewModel.loadData(isRefresh: false)
+        self.amountViewModel.loadData(isRefresh: false)
+        self.favoriteViewModel.loadData(isRefresh: false)
+        self.adBannerViewModel.loadData(isRefresh: false)
     }
     
     func setupUI() {
         view.backgroundColor = ColorEnum.localWhite2.color
         
-        let button = UIFactory.createTextButton(size: 10, text: "button", textColor: .black, bgColor: .gray)
-        self.view.addSubview(button)
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+//        let button = UIFactory.createTextButton(size: 10, text: "button", textColor: .black, bgColor: .gray)
+//        self.view.addSubview(button)
+//        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+//        
+//        NSLayoutConstraint.activate([
+//            button.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100),
+//            button.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 100),
+//            button.widthAnchor.constraint(equalToConstant: 100),
+//            button.heightAnchor.constraint(equalToConstant: 50),
+//        ])
+        
+        // UIScrollView
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(scrollView)
+        
+        let refreshControl = UIRefreshControl()
+        refreshControl.tintColor = ColorEnum.systemGray10.color
+        scrollView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(handleRefresh), for: .valueChanged)
+        self.refreshControl = refreshControl
         
         NSLayoutConstraint.activate([
-            button.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100),
-            button.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 100),
-            button.widthAnchor.constraint(equalToConstant: 100),
-            button.heightAnchor.constraint(equalToConstant: 50),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
-        
-        /*
-        let corner = 6 * scale
-        let shadowOpacity: Float = 0.8
-        
-        let vContainer = createView(color: .clear)
-        let ivPreview = createImage(name: "")
-        ivPreview.contentMode = .scaleToFill
-        let vTranslucent = createView(color: UIColor(red: 0, green: 0, blue: 0, alpha: 0.16))
-        vTranslucent.alpha = 0
-        
-        let bgSubtitle = createView(color: .black.withAlphaComponent(0.65), corner: corner)
-        
-        let lbSubtitle = createLabel(size: 14 * scale, text: "", color: .white, font: .RoundedMplus1c_Medium)
-        lbSubtitle.numberOfLines = 0
-        lbSubtitle.alpha = 0.9
-        
-        let lbTitle = createLabel(size: 14 * scale, text: "", color: .white, font: .RoundedMplus1c_Bold)
-        lbTitle.textAlignment = .center
-        lbTitle.numberOfLines = 0
-        addShadow(view: lbTitle, width: 0, height: 0, shadowOpacity: shadowOpacity)
-//        lbTitle.alpha = 0
-        
-        let ivVote = createImage(name: "eye", tintColor: .white)
-        ivVote.contentMode = .scaleAspectFit
-        addShadow(view: ivVote, width: 0, height: 0, shadowOpacity: shadowOpacity)
-        
-        let lbVote = createLabel(size: 12 * scale, text: "", color: .white, font: .RoundedMplus1c_Medium)
-        lbVote.numberOfLines = 1
-        addShadow(view: lbVote, width: 0, height: 0, shadowOpacity: shadowOpacity)
-        
-        self.vContainer = vContainer
-        self.ivPreview = ivPreview
-        self.vTranslucent = vTranslucent
-        self.bgSubtitle = bgSubtitle
-        self.lbSubtitle = lbSubtitle
-        self.lbTitle = lbTitle
-        self.ivVote = ivVote
-        self.lbVote = lbVote
-        
-        contentView.addSubview(vContainer)
-        vContainer.addSubview(ivPreview)
-        contentView.addSubview(vTranslucent)
-        contentView.addSubview(bgSubtitle)
-        contentView.addSubview(lbSubtitle)
-        contentView.addSubview(lbTitle)
-        contentView.addSubview(ivVote)
-        contentView.addSubview(lbVote)
+        // contentView
+        let contentView = UIView()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubview(contentView)
         
         NSLayoutConstraint.activate([
-            vContainer.topAnchor.constraint(equalTo: contentView.topAnchor),
-            vContainer.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            vContainer.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-            vContainer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            
-            ivPreview.topAnchor.constraint(equalTo: vContainer.topAnchor),
-            ivPreview.leftAnchor.constraint(equalTo: vContainer.leftAnchor),
-            ivPreview.rightAnchor.constraint(equalTo: vContainer.rightAnchor),
-            ivPreview.bottomAnchor.constraint(equalTo: vContainer.bottomAnchor),
-            
-            vTranslucent.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
-            vTranslucent.heightAnchor.constraint(equalToConstant: 58 * scale),
-            vTranslucent.leadingAnchor.constraint(equalTo: leadingAnchor),
-            vTranslucent.trailingAnchor.constraint(equalTo: trailingAnchor),
-            
-            bgSubtitle.topAnchor.constraint(equalTo: lbSubtitle.topAnchor, constant: -2 * scale),
-            bgSubtitle.leftAnchor.constraint(equalTo: lbSubtitle.leftAnchor, constant: -2 * scale),
-            bgSubtitle.rightAnchor.constraint(equalTo: lbSubtitle.rightAnchor, constant: 2 * scale),
-            bgSubtitle.bottomAnchor.constraint(equalTo: lbSubtitle.bottomAnchor, constant: 2 * scale),
-            
-            ivVote.centerYAnchor.constraint(equalTo: lbVote.centerYAnchor),
-            ivVote.leftAnchor.constraint(equalTo: vTranslucent.leftAnchor, constant: 12 * scale),
-            ivVote.widthAnchor.constraint(equalToConstant: 26 * scale),
-            ivVote.heightAnchor.constraint(equalToConstant: 18 * scale),
-            
-            lbVote.bottomAnchor.constraint(equalTo: vTranslucent.bottomAnchor, constant: -10 * scale),
-            lbVote.leftAnchor.constraint(equalTo: ivVote.rightAnchor, constant: 6 * scale),
-            lbVote.rightAnchor.constraint(equalTo: vTranslucent.rightAnchor, constant: -12 * scale),
-            
-            lbSubtitle.bottomAnchor.constraint(equalTo: lbVote.topAnchor, constant: -10 * scale),
-            lbSubtitle.leftAnchor.constraint(equalTo: vTranslucent.leftAnchor, constant: 12 * scale),
-            lbSubtitle.rightAnchor.constraint(equalTo: vTranslucent.rightAnchor, constant: -12 * scale),
-            
-//            lbTitle.centerYAnchor.constraint(equalTo: vTranslucent.centerYAnchor),
-            lbTitle.bottomAnchor.constraint(equalTo: lbSubtitle.topAnchor, constant: -10 * scale),
-            lbTitle.leftAnchor.constraint(equalTo: vTranslucent.leftAnchor, constant: 12 * scale),
-            lbTitle.rightAnchor.constraint(equalTo: vTranslucent.rightAnchor, constant: -12 * scale),
+            contentView.topAnchor.constraint(equalTo: scrollView.contentLayoutGuide.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.contentLayoutGuide.bottomAnchor),
+            contentView.leadingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: scrollView.frameLayoutGuide.trailingAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
+        
+        // main stack
+        let mainStackView = UIStackView()
+        mainStackView.axis = .vertical
+        mainStackView.spacing = 0
+        mainStackView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(mainStackView)
+        
+        NSLayoutConstraint.activate([
+            mainStackView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            mainStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            mainStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+        ])
+        
+        // navigationView
+        let navigationView = HomeNavigationView()
+        view.addSubview(navigationView)
+        self.navigationView = navigationView
+        navigationView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            navigationView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            navigationView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            navigationView.heightAnchor.constraint(equalToConstant: 48*scale),
+        ])
+        mainStackView.addArrangedSubview(navigationView)
+        
+        // amountView
+        let amountView = HomeAmountView()
+        self.amountView = amountView
+        navigationView.translatesAutoresizingMaskIntoConstraints = false
+        mainStackView.addArrangedSubview(amountView)
+        
+        // medium stack，include small stack
+        for _ in 1...3 {
+            let mediumView = UIView()
+            mediumView.backgroundColor = .blue
+            mediumView.translatesAutoresizingMaskIntoConstraints = false
 
-        setupVIPTag()
-        setupNewTag()
-        setupHotTag()
-        setupUGCInfoView()
-        setupIndicator()
-        */
+            let smallStackView = UIStackView()
+            smallStackView.axis = .vertical
+            smallStackView.spacing = 0
+            smallStackView.translatesAutoresizingMaskIntoConstraints = false
+            mediumView.addSubview(smallStackView)
+            
+            NSLayoutConstraint.activate([
+                smallStackView.topAnchor.constraint(equalTo: mediumView.topAnchor, constant: 50),
+                smallStackView.bottomAnchor.constraint(equalTo: mediumView.bottomAnchor),
+                smallStackView.leadingAnchor.constraint(equalTo: mediumView.leadingAnchor),
+                smallStackView.trailingAnchor.constraint(equalTo: mediumView.trailingAnchor)
+            ])
+            
+            for _ in 1...4 {
+                let smallView = UIView()
+                smallView.backgroundColor = .randomColor
+                smallView.translatesAutoresizingMaskIntoConstraints = false
+                smallView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+                smallStackView.addArrangedSubview(smallView)
+            }
+
+            mainStackView.addArrangedSubview(mediumView)
+        }
+        
+        // action
+        navigationView.btnAvatarAction = { [weak self] in
+            guard let self = self else { return }
+            print("btnAvatarAction")
+        }
+        navigationView.btnBellAction = { [weak self] in
+            guard let self = self else { return }
+            print("btnBellAction")
+            self.navigationView?.setupContent(isShowBellBadge: false)
+            let vc = NotificationViewController(messageViewModel: self.messageViewModel)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
 }
 
 extension HomeViewController {
-    @objc func buttonTapped() {
-        let vc = NotificationViewController(messageViewModel: messageViewModel)
-        navigationController?.pushViewController(vc, animated: true)
+    @objc func handleRefresh() {
+//        self.messageViewModel.loadData(isRefresh: true)
+        self.amountViewModel.loadData(isRefresh: true)
+//        self.favoriteViewModel.loadData(isRefresh: true)
+//        self.adBannerViewModel.loadData(isRefresh: true)
+        
+        self.refreshControl?.endRefreshing()
     }
 }
 
 extension HomeViewController: MessageViewModelProtocol {
     func updateMessageUI() {
-        let objs = messageViewModel.messages
-//        for obj in objs {
-//            print("obj: \(obj.message)")
-//        }
-        print("messages count: \(objs.count)")
+        print(#function)
+        navigationView?.setupContent(isShowBellBadge: messageViewModel.messages.count > 0)
     }
 }
 
 extension HomeViewController: AmountViewModelProtocol {
     func updateAmountUI() {
-        let savings = amountViewModel.savings
-        let fixedDeposits = amountViewModel.fixedDeposits
-        let digitals = amountViewModel.digitals
-        
-//        for obj in savings {
-//            print("obj account: \(obj.account)")
-//            print("obj balance: \(obj.balance)")
-//        }
-        print("savings count: \(savings.count)")
-        print("fixedDeposits count: \(fixedDeposits.count)")
-        print("digitals count: \(digitals.count)")
+        let currs = ["USD", "KHR"]
+        for curr in currs {
+            let sum = amountViewModel.getSumByCurr(curr)
+            amountView?.updateContent(curr: curr, sum: sum)
+        }
     }
 }
 
