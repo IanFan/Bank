@@ -41,7 +41,7 @@ class UIFactory {
         return imageView
     }
 
-    static func createLabel(size: CGFloat, text: String, color: UIColor, font: FontEnum = .DEFAULT, textAlignment: NSTextAlignment = .natural, numberOfLines: Int = 1) -> UILabel {
+    static func createLabel(size: CGFloat, text: String, color: UIColor, font: FontEnum, textAlignment: NSTextAlignment = .natural, numberOfLines: Int = 1) -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = text
@@ -475,37 +475,6 @@ class UIFactory {
     static func getSafeAreaBottom() -> CGFloat {
         let bottomPadding = UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
         return bottomPadding
-    }
-    
-    static func addImageAndTextToButton(btnBg: UIView, widthMax: CGFloat, height: CGFloat, imageName: String, imageSize: CGFloat, maxTextSize: CGFloat, text: String, distancePhotoAndText: CGFloat, textColor: UIColor = .white) {
-        let containTakePhoto = createView(color: .clear)
-        containTakePhoto.isUserInteractionEnabled = false
-        btnBg.addSubview(containTakePhoto)
-        NSLayoutConstraint.activate([
-            containTakePhoto.centerXAnchor.constraint(equalTo: btnBg.centerXAnchor),
-            containTakePhoto.centerYAnchor.constraint(equalTo: btnBg.centerYAnchor),
-            containTakePhoto.widthAnchor.constraint(lessThanOrEqualToConstant: widthMax),
-            containTakePhoto.heightAnchor.constraint(equalToConstant: height),
-        ])
-        containTakePhoto.isUserInteractionEnabled = false
-
-        let ivTakePhoto = createImage(name: imageName)
-        btnBg.addSubview(ivTakePhoto)
-        NSLayoutConstraint.activate([
-            ivTakePhoto.leadingAnchor.constraint(equalTo: containTakePhoto.leadingAnchor),
-            ivTakePhoto.centerYAnchor.constraint(equalTo: containTakePhoto.centerYAnchor),
-            ivTakePhoto.widthAnchor.constraint(equalToConstant: imageSize),
-            ivTakePhoto.heightAnchor.constraint(equalToConstant: imageSize),
-        ])
-
-        let tvTakePhoto = createLabel(size: maxTextSize, text: text, color: textColor)
-        btnBg.addSubview(tvTakePhoto)
-        tvTakePhoto.adjustsFontSizeToFitWidth = true
-        NSLayoutConstraint.activate([
-            tvTakePhoto.leadingAnchor.constraint(equalTo: ivTakePhoto.trailingAnchor, constant: distancePhotoAndText),
-            tvTakePhoto.centerYAnchor.constraint(equalTo: containTakePhoto.centerYAnchor),
-            tvTakePhoto.trailingAnchor.constraint(equalTo: containTakePhoto.trailingAnchor),
-        ])
     }
 
     static func addBorder(view: UIView, color: Int, borderWidth: CGFloat, corner: CGFloat) {

@@ -9,11 +9,12 @@ import Foundation
 import UIKit
 
 class HomeViewController: UIViewController {
-    var scale: CGFloat!
     var messageViewModel = MessageViewModel()
     var amountViewModel = AmountViewModel()
     var favoriteViewModel = FavoriteViewModel()
     var adBannerViewModel = AdBannerViewModel()
+    
+    let scale: CGFloat = UIFactory.getWindowSize().width / 375
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .darkContent
@@ -33,7 +34,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor(hexString: "#FAFAFA")
         
-        scale = UIFactory.getWindowSize().width / 375
         setupUI()
         
         self.messageViewModel.delegate = self

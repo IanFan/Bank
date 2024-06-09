@@ -59,6 +59,9 @@
 		A4D08DE52C15489900F2CD57 /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DE42C15489900F2CD57 /* NotificationViewController.swift */; };
 		A4D08DE72C15497100F2CD57 /* UIFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DE62C15497100F2CD57 /* UIFactory.swift */; };
 		A4D08DE92C154C9800F2CD57 /* PrefHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DE82C154C9800F2CD57 /* PrefHelper.swift */; };
+		A4D08DEB2C15579600F2CD57 /* CustomNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DEA2C15579600F2CD57 /* CustomNavigationBar.swift */; };
+		A4D08DED2C155AFB00F2CD57 /* LanguageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DEC2C155AFB00F2CD57 /* LanguageManager.swift */; };
+		A4D08DEF2C155C9200F2CD57 /* ColorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4D08DEE2C155C9200F2CD57 /* ColorFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +130,9 @@
 		A4D08DE42C15489900F2CD57 /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
 		A4D08DE62C15497100F2CD57 /* UIFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFactory.swift; sourceTree = "<group>"; };
 		A4D08DE82C154C9800F2CD57 /* PrefHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefHelper.swift; sourceTree = "<group>"; };
+		A4D08DEA2C15579600F2CD57 /* CustomNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBar.swift; sourceTree = "<group>"; };
+		A4D08DEC2C155AFB00F2CD57 /* LanguageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageManager.swift; sourceTree = "<group>"; };
+		A4D08DEE2C155C9200F2CD57 /* ColorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				A47286232C1402E0003DDC64 /* MainTabBar.swift */,
+				A4D08DEA2C15579600F2CD57 /* CustomNavigationBar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -261,7 +268,9 @@
 			isa = PBXGroup;
 			children = (
 				A472862D2C140DC2003DDC64 /* FontFactory.swift */,
+				A4D08DEE2C155C9200F2CD57 /* ColorFactory.swift */,
 				A4D08DE62C15497100F2CD57 /* UIFactory.swift */,
+				A4D08DEC2C155AFB00F2CD57 /* LanguageManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -484,6 +493,7 @@
 				A472863F2C1431B2003DDC64 /* DataErrors.swift in Sources */,
 				A4D08DB92C14606800F2CD57 /* RequestManager.swift in Sources */,
 				A47286222C1402AA003DDC64 /* MainTabBarController.swift in Sources */,
+				A4D08DED2C155AFB00F2CD57 /* LanguageManager.swift in Sources */,
 				A4D08DA42C143EF800F2CD57 /* MessageLoader.swift in Sources */,
 				A47286512C143B58003DDC64 /* LoadFileStrategy.swift in Sources */,
 				A4D08DBB2C146BE400F2CD57 /* AmountSavingLoader.swift in Sources */,
@@ -491,6 +501,7 @@
 				A47286392C1430AD003DDC64 /* JsonParserStrategy.swift in Sources */,
 				A4D08DD72C1479E300F2CD57 /* FavoriteViewModel.swift in Sources */,
 				A4D08DC72C146F6B00F2CD57 /* AmountDigitalParser.swift in Sources */,
+				A4D08DEF2C155C9200F2CD57 /* ColorFactory.swift in Sources */,
 				A47286412C143362003DDC64 /* JsonHelper.swift in Sources */,
 				A47286242C1402E0003DDC64 /* MainTabBar.swift in Sources */,
 				A4D08DCF2C1475EE00F2CD57 /* AdBannerParser.swift in Sources */,
@@ -507,6 +518,7 @@
 				A47286342C140EB2003DDC64 /* ExUIView.swift in Sources */,
 				A472863C2C1430F6003DDC64 /* MessageParser.swift in Sources */,
 				A47286362C14302D003DDC64 /* MessageModels.swift in Sources */,
+				A4D08DEB2C15579600F2CD57 /* CustomNavigationBar.swift in Sources */,
 				A4D08DC32C146F0800F2CD57 /* AmountSavingParser.swift in Sources */,
 				A4D08DE72C15497100F2CD57 /* UIFactory.swift in Sources */,
 				A4D08DD52C1479D500F2CD57 /* AmountViewModel.swift in Sources */,
