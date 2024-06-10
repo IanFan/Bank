@@ -23,17 +23,11 @@ struct MessageModel: Codable {
     let title: String
     let message: String
     
-    private static var cachedUpdateDateTimeInterval: TimeInterval?
-    var updateDateTimeInterval: TimeInterval? {
-        if let cachedInterval = Self.cachedUpdateDateTimeInterval {
-            return cachedInterval
+    var updateDateTimeDouble: Double? {
+        if let double = DateHelper.string2TimeInterval(updateDateTime) {
+            return double
         } else {
-            if let interval = DateHelper.string2TimeInterval(updateDateTime) {
-                Self.cachedUpdateDateTimeInterval = interval
-                return interval
-            } else {
-                return nil
-            }
+            return nil
         }
     }
 }

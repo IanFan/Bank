@@ -62,7 +62,7 @@ class MessageViewModel: NSObject {
     private func sortMessageObjs(objs: [MessageModel]) -> [MessageModel] {
         var objs = objs
         objs.sort {
-            return ($0.updateDateTimeInterval ?? 0) > ($1.updateDateTimeInterval ?? 0)
+            return ($0.updateDateTimeDouble ?? 0) > ($1.updateDateTimeDouble ?? 0)
         }
         return objs
     }

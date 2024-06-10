@@ -34,7 +34,7 @@ final class FavoriteLoaderTests: XCTestCase {
             switch try loader.loadDataFromCache(params: params) {
             case .success(let responseModel):
                 XCTAssertNotNil(responseModel)
-                XCTAssertTrue(responseModel.result?.favoriteList.count ?? 0 > 0)
+                XCTAssertTrue(responseModel.result?.favoriteList?.count ?? 0 > 0)
             case .failure(let error):
                 XCTFail("\(#function) error \(error)")
             }
@@ -61,7 +61,7 @@ final class FavoriteLoaderTests: XCTestCase {
         switch try await loader.loadDataOnline(params: params) {
         case .success(let responseModel):
             XCTAssertNotNil(responseModel)
-            XCTAssertTrue(responseModel.result?.favoriteList.count ?? 0 > 0)
+            XCTAssertTrue(responseModel.result?.favoriteList?.count ?? 0 > 0)
         case .failure(let error):
             XCTFail("\(#function) error \(error)")
         }

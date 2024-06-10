@@ -74,4 +74,11 @@ class DateHelper {
         }
         return date.timeIntervalSince1970
     }
+    
+    static func string2TimeDouble(_ string: String, dateFormat: String = "yyyy/MM/dd HH:mm:ss") -> TimeInterval? {
+        guard let date = string2Date(string, dateFormat: dateFormat) else {
+            return nil
+        }
+        return Double(date.timeIntervalSince1970)
+    }
 }
