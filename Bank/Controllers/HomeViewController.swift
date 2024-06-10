@@ -172,12 +172,9 @@ class HomeViewController: UIViewController {
         // action
         navigationView.btnAvatarAction = { [weak self] in
             guard let self = self else { return }
-            print("btnAvatarAction")
         }
         navigationView.btnBellAction = { [weak self] in
             guard let self = self else { return }
-            print("btnBellAction")
-            self.navigationView?.setupContent(isShowBellBadge: false)
             let vc = NotificationViewController(messageViewModel: self.messageViewModel)
             self.navigationController?.pushViewController(vc, animated: true)
         }
@@ -198,7 +195,6 @@ extension HomeViewController {
 
 extension HomeViewController: MessageViewModelProtocol {
     func updateMessageUI() {
-        print(#function)
         navigationView?.setupContent(isShowBellBadge: messageViewModel.messages.count > 0)
     }
 }
@@ -221,8 +217,6 @@ extension HomeViewController: FavoriteViewModelProtocol {
 
 extension HomeViewController: AdBannerViewModelProtocol {
     func updateAdBannerUI() {
-        let objs = adBannerViewModel.adBanners
-        print("adBanners count: \(objs.count)")
         adView?.updateWithViewModel()
     }
 }

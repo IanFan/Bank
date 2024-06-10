@@ -14,7 +14,7 @@ struct FavoriteResponseModel: Codable {
 }
 
 struct FavoriteResultModel: Codable {
-    let favoriteList: [FavoriteModel]
+    let favoriteList: [FavoriteModel]?
 }
 
 struct FavoriteModel: Codable {

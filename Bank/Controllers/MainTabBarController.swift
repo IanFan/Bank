@@ -59,10 +59,15 @@ class MainTabBarController: UITabBarController {
     
     let scale: CGFloat = UIFactory.getScale()
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.setNavigationBarHidden(true, animated: false)
         setupTabBar()
     }
     
@@ -78,6 +83,9 @@ class MainTabBarController: UITabBarController {
         let customTabBar = MainTabBar()
         self.view.addSubview(customTabBar)
         customTabBar.setupTabBar(tabBarConroller: self)
+        self.delegate = self
+        
+        updateTabBarAppearance()
     }
     
     private func createMainViewController(tabEnum: MainTabEnum) -> UIViewController {
@@ -86,9 +94,16 @@ class MainTabBarController: UITabBarController {
             vc.tabBarItem = createTabBarItem(tabEnum: tabEnum)
             return vc
         } else {
-            let vc = UIInputViewController()
+            let vc = UIViewController()
             vc.view.backgroundColor = ColorEnum.localWhite2.color
             vc.tabBarItem = createTabBarItem(tabEnum: tabEnum)
+            
+            let lb = UIFactory.createLabel(size: 18*scale, text: "View Controller: \(tabEnum)", color: ColorEnum.systemGray5.color, font: .SFProTextHeavy)
+            vc.view.addSubview(lb)
+            NSLayoutConstraint.activate([
+                lb.centerXAnchor.constraint(equalTo: vc.view.centerXAnchor),
+                lb.centerYAnchor.constraint(equalTo: vc.view.centerYAnchor),
+            ])
             return vc
         }
     }
@@ -108,8 +123,46 @@ class MainTabBarController: UITabBarController {
         tab.setTitleTextAttributes([.foregroundColor : UIColor(hexString: tabTitleColorHexSelect)], for: .selected)
         tab.tag = tabEnum.rawValue
         
-        tab.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 10)
-        tab.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
+        // Adjust vertical position of icon
+        tab.imageInsets = UIEdgeInsets(top: 7*scale, left: 0, bottom: -7*scale, right: 0)
+        // Adjust vertical position of text
+        tab.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: 6*scale)
+        
         return tab
+    }
+    
+    private func updateTabBarAppearance() {
+        let tabBarItemAppearance = UITabBarItemAppearance()
+        
+        tabBarItemAppearance.selected.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: ColorEnum.localOrange1.color,
+            .font : UIFont(name: FontEnum.SFProTextSemibold.rawValue, size: 12*scale) ?? UIFont.boldSystemFont(ofSize: 12*scale)]
+        tabBarItemAppearance.normal.titleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: ColorEnum.systemGray7.color,
+            .font : UIFont(name: FontEnum.SFProTextRegular.rawValue, size: 12*scale) ?? UIFont.systemFont(ofSize: 12*scale)]
+        
+        let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
+        tabBarAppearance.configureWithDefaultBackground()
+        tabBarAppearance.stackedLayoutAppearance = tabBarItemAppearance
+        tabBarAppearance.backgroundColor = .clear
+        
+        self.tabBar.standardAppearance = tabBarAppearance
+        self.tabBar.scrollEdgeAppearance = tabBarAppearance
+    }
+}
+
+extension MainTabBarController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        guard let tabItems = tabBarController.tabBar.items else { return }
+        
+        for item in tabItems {
+            if item == tabBarController.tabBar.selectedItem {
+                item.setTitleTextAttributes([.foregroundColor : ColorEnum.localOrange1.color,
+                                             .font : UIFont(name: FontEnum.SFProTextSemibold.rawValue, size: 12*scale) ?? UIFont.boldSystemFont(ofSize: 12*scale)], for: .normal)
+            } else {
+                item.setTitleTextAttributes([.foregroundColor : ColorEnum.systemGray7.color,
+                                             .font : UIFont(name: FontEnum.SFProTextRegular.rawValue, size: 12*scale) ?? UIFont.systemFont(ofSize: 12*scale)], for: .normal)
+            }
+        }
     }
 }

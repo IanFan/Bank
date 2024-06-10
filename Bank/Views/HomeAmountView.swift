@@ -127,6 +127,8 @@ class HomeAmountView: UIView {
         isEyeHided = !isEyeHided
 //        btnEyeAction?(isEyeHided)
         
+        ivEye?.image = isEyeHided ? UIImage(named: "iconEye02Off") : UIImage(named: "iconEye01On")
+        
         for (curr, model) in modelsDic {
             if let v = moneyViewsDic[curr] {
                 v.setupContentHomeMoenyModel(model, isEyeHided: isEyeHided)

@@ -68,7 +68,7 @@ class FavoriteViewModel: NSObject {
     }
 }
 
-extension FavoriteViewModel: UICollectionViewDelegate, UICollectionViewDataSource {
+extension FavoriteViewModel: UICollectionViewDataSource {
     func numberOfSections(in _: UICollectionView) -> Int {
         return 1
     }
@@ -85,34 +85,7 @@ extension FavoriteViewModel: UICollectionViewDelegate, UICollectionViewDataSourc
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let selectSectionIndex = indexPath.section
-        let selectIndex = indexPath.item
-        
-        guard let cell = collectionView.cellForItem(at: indexPath) as? FavoriteCell, let obj: HomeFavoriteModel = cell.favorite else {
-            return
-        }
-    }
-    
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         return UICollectionReusableView()
-    }
-}
-
-extension FavoriteViewModel: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView,
-                        layout _: UICollectionViewLayout,
-                        sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let height = collectionView.frame.height
-        let size = CGSize(width: 80*scale, height: height)
-        return size
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 0, left: 0, bottom: 0, right: 0)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0
     }
 }

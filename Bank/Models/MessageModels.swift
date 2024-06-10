@@ -14,7 +14,7 @@ struct MessageResponseModel: Codable {
 }
 
 struct MessageResultModel: Codable {
-    let messages: [MessageModel]
+    let messages: [MessageModel]?
 }
 
 struct MessageModel: Codable {
